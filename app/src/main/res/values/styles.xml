@@ -6,4 +6,5 @@
         <item name="android:navigationBarColor" tools:targetApi="lollipop">#80000000</item>
     </style>
 
+
 </resources>
