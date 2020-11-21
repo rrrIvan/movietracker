@@ -25,17 +25,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            window.setDecorFitsSystemWindows(false)
-        }
-        else {
+        try {
+            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                window.setDecorFitsSystemWindows(false)
+            } else {
 
-            viewroot.systemUiVisibility = SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                    SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-        }
-        ViewCompat.setOnApplyWindowInsetsListener(toolbar_trans) { view, insets ->
-            view.updateMarginTop(insets.systemWindowInsetTop) //marginTop(top = insets.systemWindowInsetTop)
-            insets
+                viewroot.systemUiVisibility = SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                        SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+            }
+            ViewCompat.setOnApplyWindowInsetsListener(toolbar_trans) { view, insets ->
+                view.updateMarginTop(insets.systemWindowInsetTop) //marginTop(top = insets.systemWindowInsetTop)
+                insets
+            }
+        }catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 

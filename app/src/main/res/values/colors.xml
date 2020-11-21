@@ -8,8 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background_color">#FF191926</color>
-    <color name="color_for_text_white">#FFECECEC</color>
     <color name="my_grey">#6D6D80</color>
     <color name="qqq">#13C53A</color>
     <color name="my_red">#FF3466</color>
+    <color name="my_white">#FFECECEC</color>
 </resources>
