@@ -1,0 +1,13 @@
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:color="@color/cl_white"
+    tools:targetApi="lollipop">
+    <item>
+<shape>
+    <solid android:color="@android:color/transparent"/>
+    <corners android:radius="6dp" />
+
+</shape>
+    </item>
+<item android:drawable="@drawable/movie" />
+</ripple>

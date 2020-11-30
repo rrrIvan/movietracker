@@ -3,8 +3,49 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="materialCardViewStyle">@style/MyCardView</item>
+    </style>
+    <style name="MyCardView" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/activityBackground</item>
+        <item name="cardBackgroundColor">@color/background_color</item>
+    </style>
+
+    <style name="circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+    <style name="text1" >
+        <item name="android:textColor">@color/my_grey</item>
+        <item name="android:text">@string/text2</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+    <style name="text2" >
+        <item name="android:textColor">@color/my_red</item>
+        <item name="android:text">@string/text1</item>
+        <item name="android:fontFamily">sans-serif</item>
+
+    </style>
+    <style name="text3" >
+        <item name="android:textColor">@color/my_white</item>
+        <item name="android:text">Avengers: End Game</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textAlignment">viewStart</item>
 
     </style>
 
-
+    <color name="colorPrimary">#4CAF50</color>
+    <color name="colorPrimaryDark">#FFC107</color>
+    <color name="colorAccent">#00BCD4</color>
+    <color name="activityBackground">#673AB7</color>
+    <color name="your_color">#3F51B5</color>
 </resources>

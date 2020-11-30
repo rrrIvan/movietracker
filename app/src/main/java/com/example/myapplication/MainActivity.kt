@@ -14,6 +14,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.updateLayoutParams
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
+import kotlinx.android.synthetic.main.fragment_movie_list2.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -23,13 +24,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.fragment_movie_list2)
 
+//
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.setDecorFitsSystemWindows(false)
-        } else {
+        }
+            else {
 
-            viewroot.systemUiVisibility = SYSTEM_UI_FLAG_LAYOUT_STABLE or
+            viewroot1.systemUiVisibility = SYSTEM_UI_FLAG_LAYOUT_STABLE or
                     SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         }
         ViewCompat.setOnApplyWindowInsetsListener(toolbar_trans) { view, insets ->

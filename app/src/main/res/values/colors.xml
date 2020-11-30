@@ -12,4 +12,7 @@
     <color name="qqq">#13C53A</color>
     <color name="my_red">#FF3466</color>
     <color name="my_white">#FFECECEC</color>
+    <color name="cl_white">#80FFFFFF</color>
+    <color name="my_linear">#80636375</color>
+    <color name="border_color">#636375</color>
 </resources>
