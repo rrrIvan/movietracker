@@ -30,6 +30,9 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .apply {
                 add(R.id.fragments_container, FragmentMoviesList.newInstance())
+                addToBackStack(null)
+//                add(R.id.fragments_container,FragmentMoviesDetails.newInstance())
+//                addToBackStack(null)
                 commit()
             }
 //
