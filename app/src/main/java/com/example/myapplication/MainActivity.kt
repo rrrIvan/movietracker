@@ -13,9 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.updateLayoutParams
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.my_toolbar
-
-import kotlinx.android.synthetic.main.fragment_movies_list.*
 import kotlinx.android.synthetic.main.toolbar2.*
 
 
@@ -44,17 +41,20 @@ class MainActivity : AppCompatActivity() {
             fragments_container.systemUiVisibility = SYSTEM_UI_FLAG_LAYOUT_STABLE or
                     SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         }
-        ViewCompat.setOnApplyWindowInsetsListener(toolbar_trans) { view, insets ->
-            view.updateMarginTop(insets.systemWindowInsetTop) //marginTop(top = insets.systemWindowInsetTop)
-            insets
-        }
 
+//        ViewCompat.requestApplyInsets(view)
+//            ViewCompat.setOnApplyWindowInsetsListener(toolbar_trans2) { view, insets ->
+//                view.updateMarginTop(insets.systemWindowInsetTop) //marginTop(top = insets.systemWindowInsetTop)
+//                insets
+////            }
+//
+//        }
 
     }
 
     }
 
-    private fun View.updateMarginTop(value: Int){
+    public fun View.updateMarginTop(value: Int){
         updateLayoutParams<ViewGroup.MarginLayoutParams> {
             topMargin = value
         }

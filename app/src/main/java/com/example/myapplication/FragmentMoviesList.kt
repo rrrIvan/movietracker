@@ -1,11 +1,17 @@
 package com.example.myapplication
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
+import androidx.core.view.ViewCompat
 import com.google.android.material.card.MaterialCardView
+import kotlinx.android.synthetic.main.toolbar2.*
+
+import kotlinx.android.synthetic.main.activity_main.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,8 +44,29 @@ class FragmentMoviesList : Fragment() {
         return inflater.inflate(R.layout.fragment_movies_list, container, false)
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+    }
+
+
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        activity!!.findViewById<View>(R.id.my_toolbar2).visibility = View.VISIBLE
+//
+//        activity.findViewById<View>(R.id.my_toolbar1).visibility = View.GONE
+//        activity.apply {
+//        ViewCompat.requestApplyInsets(view)
+//            ViewCompat.setOnApplyWindowInsetsListener(toolbar_trans2) { view, insets ->
+//                view.updateMarginTop(insets.systemWindowInsetTop) //marginTop(top = insets.systemWindowInsetTop)
+//                insets
+////            }
+//
+//        }
+
         view.findViewById<MaterialCardView>(R.id.material_card).setOnClickListener {
             activity?.apply {
                 supportFragmentManager.beginTransaction()

@@ -12,7 +12,7 @@ app:elevation="0dp"
         >
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_trans"
+        android:id="@+id/toolbar_trans1"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
 >

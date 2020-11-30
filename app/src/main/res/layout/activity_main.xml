@@ -5,8 +5,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     <include
-        android:id="@+id/my_toolbar"
+        android:id="@+id/my_toolbar2"
         layout="@layout/toolbar2"
+        android:visibility="gone"
+
+
+
+
+
+        />
+    <include
+        android:id="@+id/my_toolbar1"
+        layout="@layout/toolbar1"
+        android:visibility="gone"
 
 
 
