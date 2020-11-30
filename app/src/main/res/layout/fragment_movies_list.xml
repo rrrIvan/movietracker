@@ -200,13 +200,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
-    <include
-        android:id="@+id/my_toolbar"
-        layout="@layout/toolbar2"
 
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        />
 </androidx.constraintlayout.widget.ConstraintLayout>

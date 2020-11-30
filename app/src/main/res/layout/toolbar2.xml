@@ -6,7 +6,7 @@
     android:id="@+id/moviesAppBar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@null"
+    android:background="@color/background_color"
     app:elevation="0dp"
 
     >
