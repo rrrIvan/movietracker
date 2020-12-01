@@ -1,17 +1,11 @@
 package com.example.myapplication
 
-import android.app.Activity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.Toolbar
-import androidx.core.view.ViewCompat
+import androidx.fragment.app.Fragment
 import com.google.android.material.card.MaterialCardView
-import kotlinx.android.synthetic.main.toolbar2.*
-
-import kotlinx.android.synthetic.main.activity_main.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,6 +18,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class FragmentMoviesList : Fragment() {
+
     // TODO: Rename and change types of parameters
     private var param1: Int? = null
     private var param2: String? = null
@@ -44,20 +39,16 @@ class FragmentMoviesList : Fragment() {
         return inflater.inflate(R.layout.fragment_movies_list, container, false)
     }
 
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        try {
-            view.findViewById<android.widget.Toolbar>(R.id.toolbar_trans2).updateMarginTop(param1?:0)
-        }catch (e:Exception){
-            e.printStackTrace()
+        (activity as MainActivity?)?.let {
+            it.setSupportActionBar(view.findViewById(R.id.toolbar_trans2))
         }
         view.findViewById<MaterialCardView>(R.id.material_card).setOnClickListener {
             activity?.apply {
                 supportFragmentManager.beginTransaction()
                     .apply {
-                        add(R.id.fragments_container,FragmentMoviesDetails.newInstance(param1?:0))
+                        add(R.id.fragments_container, FragmentMoviesDetails.newInstance(param1 ?: 0))
                         addToBackStack(null)
                         commit()
                     }
@@ -66,6 +57,7 @@ class FragmentMoviesList : Fragment() {
     }
 
     companion object {
+
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
@@ -76,7 +68,7 @@ class FragmentMoviesList : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: Int, param2: String="") =
+        fun newInstance(param1: Int = 0, param2: String = "") =
             FragmentMoviesList().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_PARAM1, param1)
