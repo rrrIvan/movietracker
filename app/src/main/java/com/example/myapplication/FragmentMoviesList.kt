@@ -25,13 +25,13 @@ private const val ARG_PARAM2 = "param2"
  */
 class FragmentMoviesList : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
+    private var param1: Int? = null
     private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
+            param1 = it.getInt(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
     }
@@ -44,34 +44,20 @@ class FragmentMoviesList : Fragment() {
         return inflater.inflate(R.layout.fragment_movies_list, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-    }
-
-
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        activity!!.findViewById<View>(R.id.my_toolbar2).visibility = View.VISIBLE
-//
-//        activity.findViewById<View>(R.id.my_toolbar1).visibility = View.GONE
-//        activity.apply {
-//        ViewCompat.requestApplyInsets(view)
-//            ViewCompat.setOnApplyWindowInsetsListener(toolbar_trans2) { view, insets ->
-//                view.updateMarginTop(insets.systemWindowInsetTop) //marginTop(top = insets.systemWindowInsetTop)
-//                insets
-////            }
-//
-//        }
-
+        try {
+            view.findViewById<android.widget.Toolbar>(R.id.toolbar_trans2).updateMarginTop(param1?:0)
+        }catch (e:Exception){
+            e.printStackTrace()
+        }
         view.findViewById<MaterialCardView>(R.id.material_card).setOnClickListener {
             activity?.apply {
                 supportFragmentManager.beginTransaction()
                     .apply {
-                        add(R.id.fragments_container,FragmentMoviesDetails.newInstance())
+                        add(R.id.fragments_container,FragmentMoviesDetails.newInstance(param1?:0))
                         addToBackStack(null)
                         commit()
                     }
@@ -90,10 +76,10 @@ class FragmentMoviesList : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String="", param2: String="") =
+        fun newInstance(param1: Int, param2: String="") =
             FragmentMoviesList().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
+                    putInt(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
                 }
             }

@@ -13,50 +13,47 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.updateLayoutParams
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_movies_details.*
 import kotlinx.android.synthetic.main.toolbar2.*
 
 
 class MainActivity : AppCompatActivity() {
 
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportFragmentManager.beginTransaction()
-            .apply {
-                add(R.id.fragments_container, FragmentMoviesList.newInstance())
-                addToBackStack(null)
-//                add(R.id.fragments_container,FragmentMoviesDetails.newInstance())
-//                addToBackStack(null)
-                commit()
-            }
+
 //
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.setDecorFitsSystemWindows(false)
-        }
-            else {
+        } else {
 
             fragments_container.systemUiVisibility = SYSTEM_UI_FLAG_LAYOUT_STABLE or
                     SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         }
 
-//        ViewCompat.requestApplyInsets(view)
-//            ViewCompat.setOnApplyWindowInsetsListener(toolbar_trans2) { view, insets ->
-//                view.updateMarginTop(insets.systemWindowInsetTop) //marginTop(top = insets.systemWindowInsetTop)
-//                insets
-////            }
-//
-//        }
+        if (savedInstanceState == null)
+            ViewCompat.setOnApplyWindowInsetsListener(root_view) { view, insets ->
+                supportFragmentManager.beginTransaction()
+                    .apply {
+                        add(
+                            R.id.fragments_container,
+                            FragmentMoviesList.newInstance(insets.systemWindowInsetTop)
+                        )
+                        addToBackStack(null)
+                        commit()
+                    }
+                insets
+            }
 
     }
 
-    }
+}
 
-    public fun View.updateMarginTop(value: Int){
-        updateLayoutParams<ViewGroup.MarginLayoutParams> {
-            topMargin = value
-        }
+public fun View.updateMarginTop(value: Int) {
+    updateLayoutParams<ViewGroup.MarginLayoutParams> {
+        topMargin = value
+    }
 
 }
