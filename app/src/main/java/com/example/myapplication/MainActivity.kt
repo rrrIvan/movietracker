@@ -13,8 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.updateLayoutParams
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_movies_details.*
-import kotlinx.android.synthetic.main.toolbar2.*
 
 
 class MainActivity : AppCompatActivity() {
