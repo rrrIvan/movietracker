@@ -7,8 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.ViewCompat
-import kotlinx.android.synthetic.main.toolbar1.*
-import kotlinx.android.synthetic.main.toolbar2.*
+import kotlinx.android.synthetic.main.details.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,30 +37,22 @@ class FragmentMoviesDetails : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_movies_details, container, false)
+        return inflater.inflate(R.layout.details, container, false)
     }
     override fun onAttach(activity: Activity) {
         super.onAttach(activity)
-        activity.findViewById<View>(R.id.my_toolbar2).visibility = View.GONE
-//        activity.findViewById<View>(R.id.my_toolbar1).visibility = View.VISIBLE
-//        my_toolbar2.visibility = View.VISIBLE
 
-        activity.apply {
 
-            ViewCompat.setOnApplyWindowInsetsListener(toolbar_trans1) { view, insets ->
-                view.updateMarginTop(insets.systemWindowInsetTop) //marginTop(top = insets.systemWindowInsetTop)
-                insets
-            }
-        }
+
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.apply {
+//        activity?.apply {
             ViewCompat.setOnApplyWindowInsetsListener(toolbar_trans1) { view, insets ->
                 view.updateMarginTop(insets.systemWindowInsetTop) //marginTop(top = insets.systemWindowInsetTop)
                 insets
             }
-        }
+//        }
     }
 
     companion object {

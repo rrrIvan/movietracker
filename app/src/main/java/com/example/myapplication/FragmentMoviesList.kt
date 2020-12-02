@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import com.google.android.material.card.MaterialCardView
-import kotlinx.android.synthetic.main.toolbar2.*
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_movies_list.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -55,15 +55,15 @@ class FragmentMoviesList : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        activity!!.findViewById<View>(R.id.my_toolbar2).visibility = View.VISIBLE
+
 //
 //        activity.findViewById<View>(R.id.my_toolbar1).visibility = View.GONE
 //        activity.apply {
-//        ViewCompat.requestApplyInsets(view)
-//            ViewCompat.setOnApplyWindowInsetsListener(toolbar_trans2) { view, insets ->
-//                view.updateMarginTop(insets.systemWindowInsetTop) //marginTop(top = insets.systemWindowInsetTop)
-//                insets
-////            }
+        ViewCompat.requestApplyInsets(view)
+            ViewCompat.setOnApplyWindowInsetsListener(toolbar_trans2) { view, insets ->
+                view.updateMarginTop(insets.systemWindowInsetTop) //marginTop(top = insets.systemWindowInsetTop)
+                insets
+            }
 //
 //        }
 
