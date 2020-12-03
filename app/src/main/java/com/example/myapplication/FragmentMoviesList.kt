@@ -53,13 +53,9 @@ class FragmentMoviesList : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-//
-//        activity.findViewById<View>(R.id.my_toolbar1).visibility = View.GONE
-//        activity.apply {
         ViewCompat.requestApplyInsets(view)
-        ViewCompat.setOnApplyWindowInsetsListener(toolbar_trans2) { view, insets ->
-            view.updateMarginTop(insets.systemWindowInsetTop) //marginTop(top = insets.systemWindowInsetTop)
+        ViewCompat.setOnApplyWindowInsetsListener(view) { view, insets ->
+            view.findViewById<Toolbar>(R.id.toolbar_trans2).updateMarginTop(insets.systemWindowInsetTop) //marginTop(top = insets.systemWindowInsetTop)
             insets
         }
 //

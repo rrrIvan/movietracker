@@ -47,9 +47,10 @@ class FragmentMoviesDetails : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        ViewCompat.requestApplyInsets(view)
 
             ViewCompat.setOnApplyWindowInsetsListener(toolbar_trans1) { view, insets ->
-                view.updateMarginTop(insets.systemWindowInsetTop) //marginTop(top = insets.systemWindowInsetTop)
+                view.updateMarginTop(insets.systemWindowInsetTop)
                 insets
             }
 
