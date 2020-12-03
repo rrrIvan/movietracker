@@ -50,8 +50,6 @@ class FragmentMoviesList : Fragment() {
     }
 
 
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -60,10 +58,10 @@ class FragmentMoviesList : Fragment() {
 //        activity.findViewById<View>(R.id.my_toolbar1).visibility = View.GONE
 //        activity.apply {
         ViewCompat.requestApplyInsets(view)
-            ViewCompat.setOnApplyWindowInsetsListener(toolbar_trans2) { view, insets ->
-                view.updateMarginTop(insets.systemWindowInsetTop) //marginTop(top = insets.systemWindowInsetTop)
-                insets
-            }
+        ViewCompat.setOnApplyWindowInsetsListener(toolbar_trans2) { view, insets ->
+            view.updateMarginTop(insets.systemWindowInsetTop) //marginTop(top = insets.systemWindowInsetTop)
+            insets
+        }
 //
 //        }
 
@@ -71,7 +69,7 @@ class FragmentMoviesList : Fragment() {
             activity?.apply {
                 supportFragmentManager.beginTransaction()
                     .apply {
-                        add(R.id.fragments_container,FragmentMoviesDetails.newInstance())
+                        add(R.id.fragments_container, FragmentMoviesDetails.newInstance())
                         addToBackStack(null)
                         commit()
                     }
@@ -90,7 +88,7 @@ class FragmentMoviesList : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String="", param2: String="") =
+        fun newInstance(param1: String = "", param2: String = "") =
             FragmentMoviesList().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
