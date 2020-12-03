@@ -53,11 +53,11 @@ class FragmentMoviesList : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        ViewCompat.requestApplyInsets(view)
-//        ViewCompat.setOnApplyWindowInsetsListener(view) { view, insets ->
-//            view.findViewById<Toolbar>(R.id.toolbar_trans2).updateMarginTop(insets.systemWindowInsetTop) //marginTop(top = insets.systemWindowInsetTop)
-//            insets
-//        }
+        ViewCompat.requestApplyInsets(view)
+        ViewCompat.setOnApplyWindowInsetsListener(view) { view, insets ->
+            view.findViewById<Toolbar>(R.id.toolbar_trans2).updateMarginTop(insets.systemWindowInsetTop) //marginTop(top = insets.systemWindowInsetTop)
+            insets
+        }
 //
 //        }
 
