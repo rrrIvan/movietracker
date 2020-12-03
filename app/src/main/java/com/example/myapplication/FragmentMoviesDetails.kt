@@ -39,20 +39,21 @@ class FragmentMoviesDetails : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.details, container, false)
     }
+
     override fun onAttach(activity: Activity) {
         super.onAttach(activity)
 
 
-
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         ViewCompat.requestApplyInsets(view)
 
-            ViewCompat.setOnApplyWindowInsetsListener(toolbar_trans1) { view, insets ->
-                view.updateMarginTop(insets.systemWindowInsetTop)
-                insets
-            }
+        ViewCompat.setOnApplyWindowInsetsListener(toolbar_trans1) { view, insets ->
+            view.updateMarginTop(insets.systemWindowInsetTop)
+            insets
+        }
 
     }
 
@@ -67,7 +68,7 @@ class FragmentMoviesDetails : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String="", param2: String="") =
+        fun newInstance(param1: String = "", param2: String = "") =
             FragmentMoviesDetails().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
