@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.activites
 
 import android.os.Build
 import android.os.Bundle
@@ -9,28 +9,25 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.updateLayoutParams
+import com.example.myapplication.R
+import com.example.myapplication.fragments.FragmentMoviesList
 import kotlinx.android.synthetic.main.activity_main.fragments_container
+import timber.log.Timber
+import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
 
     private var topMargin: Int = 0
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            window.setDecorFitsSystemWindows(false)
-        } else {
+        setFullScreen()
 
-            fragments_container.systemUiVisibility = SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                    SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-        }
 
-        val idStatusBarHeight: Int = resources.getIdentifier("status_bar_height", "dimen", "android")
-        if (idStatusBarHeight > 0) {
-            topMargin = resources.getDimensionPixelSize(idStatusBarHeight)
-        }
 
         if (savedInstanceState == null)
             supportFragmentManager.beginTransaction()
@@ -42,6 +39,25 @@ class MainActivity : AppCompatActivity() {
                     addToBackStack(null)
                     commit()
                 }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if (supportFragmentManager.fragments.isEmpty()) exitProcess(0)
+    }
+
+    private fun setFullScreen() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.setDecorFitsSystemWindows(false)
+        } else {
+
+            fragments_container.systemUiVisibility = SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                    SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        }
+        val idStatusBarHeight: Int = resources.getIdentifier("status_bar_height", "dimen", "android")
+        if (idStatusBarHeight > 0) {
+            topMargin = resources.getDimensionPixelSize(idStatusBarHeight)
+        }
     }
 
     override fun setSupportActionBar(toolbar: Toolbar?) {

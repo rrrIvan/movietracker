@@ -18,26 +18,24 @@
         <item name="cardBackgroundColor">@color/background_color</item>
     </style>
 
-    <style name="circleImageView" parent="">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">50%</item>
+    <style name="DetailsPosterST" parent="">
+        <item name="cornerSizeTopRight">75dp</item>
+        <item name="cornerSizeTopLeft">75dp</item>
+        <item name="cornerFamilyTopRight">rounded</item>
     </style>
     <style name="text1" >
         <item name="android:textColor">@color/my_grey</item>
-        <item name="android:text">@string/text2</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
 
     </style>
     <style name="text2" >
         <item name="android:textColor">@color/my_red</item>
-        <item name="android:text">@string/text1</item>
         <item name="android:fontFamily">sans-serif</item>
 
     </style>
     <style name="text3" >
         <item name="android:textColor">@color/my_white</item>
-        <item name="android:text">Avengers: End Game</item>
         <item name="android:textSize">40sp</item>
         <item name="android:singleLine">false</item>
         <item name="android:textStyle">bold</item>

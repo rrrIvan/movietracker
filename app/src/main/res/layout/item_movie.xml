@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <com.google.android.material.card.MaterialCardView
+    xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/material_card"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+
+
+        android:checkable="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:theme="@style/MyCardView"
+        app:cardCornerRadius="8dp"
+
+        app:cardElevation="0dp"
+        app:strokeColor="@color/border_color"
+        app:strokeWidth="1dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/gradient_bc">
+
+
+            <ImageView
+                android:id="@+id/ListsPoster"
+                tools:src="@drawable/movie"
+
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintDimensionRatio="166:248"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/mask__1_"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="@+id/ListsPoster"
+                app:layout_constraintEnd_toEndOf="@+id/ListsPoster"
+
+                app:layout_constraintStart_toStartOf="@+id/ListsPoster"
+                app:layout_constraintTop_toTopOf="@+id/ListsPoster"
+                 />
+
+            <View
+                android:id="@+id/viewAge"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/age"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/ListsAgeLimit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="13+"
+                android:textColor="@color/my_white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/viewAge"
+                app:layout_constraintEnd_toEndOf="@+id/viewAge"
+                app:layout_constraintStart_toStartOf="@+id/viewAge"
+                app:layout_constraintTop_toTopOf="@+id/viewAge" />
+
+
+            <ImageView
+                android:id="@+id/ListsStars"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/ListsPoster"
+
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/star_icon" />
+
+
+            <TextView
+                android:id="@+id/textViewReviews"
+                style="@style/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="8sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ListsPoster"
+                app:layout_constraintStart_toEndOf="@+id/ListsStars"
+                tools:text="@string/text2" />
+
+            <TextView
+                android:id="@+id/ListsTags"
+                style="@style/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="8sp"
+                app:layout_constraintBottom_toTopOf="@+id/ListsStars"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="@string/text1" />
+
+            <TextView
+                android:id="@+id/ListsTitle"
+                style="@style/text3"
+                tools:text="Avengers: End Game"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ListsPoster" />
+
+            <TextView
+                android:id="@+id/ListsDuration"
+                style="@style/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                tools:text="137 min"
+
+                android:textSize="8sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ListsTitle" />
+
+
+
+            <ImageView
+                android:id="@+id/imageViewLike"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="6dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/like"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
