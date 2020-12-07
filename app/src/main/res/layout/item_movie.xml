@@ -89,7 +89,7 @@
 
 
             <TextView
-                android:id="@+id/textViewReviews"
+                android:id="@+id/ListsReviews"
                 style="@style/text1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -139,7 +139,7 @@
 
 
             <ImageView
-                android:id="@+id/imageViewLike"
+                android:id="@+id/ListsLike"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:layout_marginTop="13dp"

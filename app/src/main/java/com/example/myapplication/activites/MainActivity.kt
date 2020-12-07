@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.updateLayoutParams
 import com.example.myapplication.R
+import com.example.myapplication.fragments.FragmentMoviesDetails
 import com.example.myapplication.fragments.FragmentMoviesList
 import kotlinx.android.synthetic.main.activity_main.fragments_container
 import timber.log.Timber
@@ -33,8 +34,10 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 .apply {
                     add(
+//                        R.id.fragments_container,
+//                        FragmentMoviesList.newInstance()
                         R.id.fragments_container,
-                        FragmentMoviesList.newInstance()
+                        FragmentMoviesDetails.newInstance()
                     )
                     addToBackStack(null)
                     commit()

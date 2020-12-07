@@ -15,4 +15,5 @@
     <color name="cl_white">#80FFFFFF</color>
     <color name="my_linear">#80636375</color>
     <color name="border_color">#636375</color>
+    <color name="text_actors_white">#D8D8D8</color>
 </resources>

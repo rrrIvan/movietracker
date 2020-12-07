@@ -5,8 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.activites.MainActivity
+import com.example.myapplication.adapters.CastAdapter
+import com.example.myapplication.adapters.MovieAdapter
+import com.example.myapplication.local.MockRepository
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,7 +26,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class FragmentMoviesDetails : Fragment() {
 
-    // TODO: Rename and change types of parameters
+    private var recycler: RecyclerView? = null
     private var param1: Int? = null
     private var param2: String? = null
 
@@ -42,22 +48,32 @@ class FragmentMoviesDetails : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as MainActivity?)?.let {
-            it.setSupportActionBar(view.findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar_trans1))
+            it.setSupportActionBar(view.findViewById(R.id.toolbar_trans1))
+        }
+        val lManager = LinearLayoutManager(context)
+        lManager.orientation = RecyclerView.HORIZONTAL
+        recycler = view.findViewById<RecyclerView>(R.id.rv_actors)
+        recycler?.apply {
+            layoutManager = lManager
+            adapter = CastAdapter()
+
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        updateData()
+    }
+
+    private fun updateData() {
+        (recycler?.adapter as? CastAdapter)?.apply {
+            bindCast(MockRepository().getMovies()[0].cast)
         }
     }
 
     companion object {
-
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FragmentMoviesDetails.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
+         @JvmStatic
         fun newInstance(param1: Int = 0, param2: String = "") =
             FragmentMoviesDetails().apply {
                 arguments = Bundle().apply {

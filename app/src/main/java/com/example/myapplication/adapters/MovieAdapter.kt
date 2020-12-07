@@ -45,11 +45,12 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MoviesViewHolder>() {
 
         private val poster: ImageView = itemView.findViewById(R.id.ListsPoster)
         private val rating: ImageView = itemView.findViewById(R.id.ListsStars)
-        private val isLike: ImageView = itemView.findViewById(R.id.imageViewLike)
+        private val isLike: ImageView = itemView.findViewById(R.id.ListsLike)
         private val title: TextView = itemView.findViewById(R.id.ListsTitle)
         private val ageLimit: TextView = itemView.findViewById(R.id.ListsAgeLimit)
         private val duration: TextView = itemView.findViewById(R.id.ListsDuration)
         private val tags: TextView = itemView.findViewById(R.id.ListsTags)
+        private val reviews: TextView = itemView.findViewById(R.id.ListsReviews)
 
 
         fun onBind(options: RequestOptions, movie: Movie) {
@@ -69,7 +70,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MoviesViewHolder>() {
             }
             tags.text = movie.tags.joinToString(separator = ", ")
             isLike.setImageDrawable(drawable)
-
+            reviews.text = movie.reviews.toString().plus(" REVIEWS")
             rating.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.star_icon))
             title.text = movie.title
             ageLimit.text = movie.ageLimit.toString()
