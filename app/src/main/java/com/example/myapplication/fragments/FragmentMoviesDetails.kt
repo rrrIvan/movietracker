@@ -1,40 +1,35 @@
 package com.example.myapplication.fragments
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.myapplication.R
 import com.example.myapplication.activites.MainActivity
 import com.example.myapplication.adapters.CastAdapter
-import com.example.myapplication.adapters.MovieAdapter
-import com.example.myapplication.local.MockRepository
+import com.example.myapplication.local.model.Movie
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [FragmentMoviesDetails.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FragmentMoviesDetails : Fragment() {
 
     private var recycler: RecyclerView? = null
-    private var param1: Int? = null
-    private var param2: String? = null
-
+    private var param1: Movie? = null
+    private val imageOption = RequestOptions()
+        .placeholder(R.drawable.ic_movie_placeholder)
+        .fallback(R.drawable.ic_movie_placeholder)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getInt(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            param1 = it.getParcelable(Movie::class.java.name)
         }
     }
 
@@ -58,6 +53,30 @@ class FragmentMoviesDetails : Fragment() {
             adapter = CastAdapter()
 
         }
+
+        val poster: ImageView = view.findViewById(R.id.DetailPoster)
+        val rating: ImageView = view.findViewById(R.id.DetailStars)
+        val isLike: ImageView = view.findViewById(R.id.DetailLike)
+        val title: TextView = view.findViewById(R.id.DetailTitle)
+        val ageLimit: TextView = view.findViewById(R.id.DetailAge)
+        val tags: TextView = view.findViewById(R.id.DetailTags)
+        val reviews: TextView = view.findViewById(R.id.DetailReview)
+        Glide.with(view.context)
+            .load(param1?.poster)
+            .apply(imageOption)
+            .into(poster)
+        val drawable: Drawable? = if (param1?.isLiked == true) {
+            ContextCompat.getDrawable(view.context, R.drawable.like)
+        } else {
+            ContextCompat.getDrawable(view.context, R.drawable.no_like)
+        }
+        tags.text = param1?.tags?.joinToString(separator = ", ")
+        isLike.setImageDrawable(drawable)
+        reviews.text = param1?.reviews.toString().plus(" REVIEWS")
+        rating.setImageDrawable(ContextCompat.getDrawable(view.context, R.drawable.star_icon))
+        title.text = param1?.title
+        ageLimit.text = param1?.ageLimit.toString()
+
     }
 
     override fun onStart() {
@@ -68,17 +87,16 @@ class FragmentMoviesDetails : Fragment() {
 
     private fun updateData() {
         (recycler?.adapter as? CastAdapter)?.apply {
-            bindCast(MockRepository().getMovies()[0].cast)
+            param1?.cast?.let { bindCast(it) }
         }
     }
 
     companion object {
          @JvmStatic
-        fun newInstance(param1: Int = 0, param2: String = "") =
+        fun newInstance(param: Movie) =
             FragmentMoviesDetails().apply {
                 arguments = Bundle().apply {
-                    putInt(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putParcelable(Movie::class.java.name, param)
                 }
             }
     }

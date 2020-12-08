@@ -10,8 +10,9 @@
 
     <ImageView
         android:id="@+id/ActorPhoto"
-        android:layout_width="@dimen/actor_size"
-        android:layout_height="@dimen/actor_size"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -21,7 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
-        android:text="TextViewkjh jkhb kjhbk jhbk hbk jhbk jhbk jhbk jbh jk"
+        tools:text="TextViewkjh jkhb kjhbk jhbk hbk jhbk jhbk jhbk jbh jk"
         android:textAlignment="center"
         android:textColor="@color/text_actors_white"
         android:textSize="12sp"

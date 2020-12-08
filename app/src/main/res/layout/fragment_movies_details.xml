@@ -1,29 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    >
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/viewroot"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_color">
-
+    android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/DetailLike"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/like" />
+
+    <ImageView
+        android:id="@+id/DetailStars"
         android:layout_width="14dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/DetailTags"
         app:srcCompat="@drawable/star_icon" />
 
+    <TextView
+        android:id="@+id/DetailReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="sans-serif"
+        android:text="125 Reviews"
+        android:textColor="@color/my_grey"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/DetailStars"
+        app:layout_constraintStart_toEndOf="@+id/DetailStars"
+        app:layout_constraintTop_toTopOf="@+id/DetailStars" />
+
     <ImageView
-        android:id="@+id/imageView_back"
+        android:id="@+id/DetailPoster"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
@@ -34,32 +59,30 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView_gradient"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="fitXY"
         android:src="@drawable/gradient_shape"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView_back"
-        app:layout_constraintEnd_toEndOf="@+id/imageView_back"
-        app:layout_constraintStart_toStartOf="@+id/imageView_back"
-        app:layout_constraintTop_toTopOf="@+id/imageView_back" />
+        app:layout_constraintBottom_toBottomOf="@+id/DetailPoster"
+        app:layout_constraintEnd_toEndOf="@+id/DetailPoster"
+        app:layout_constraintStart_toStartOf="@+id/DetailPoster"
+        app:layout_constraintTop_toTopOf="@+id/DetailPoster" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/DetailTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
-        android:fontFamily="sans-serif"
         android:text="@string/film_name"
         android:textAlignment="viewStart"
         android:textColor="@color/my_white"
         android:textSize="40sp"
         android:textStyle="bold"
 
-        app:layout_constraintBottom_toBottomOf="@+id/imageView_back"
+        app:layout_constraintBottom_toBottomOf="@+id/DetailPoster"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView_back" />
+        app:layout_constraintTop_toBottomOf="@+id/DetailPoster" />
 
     <View
         android:id="@+id/viewAge"
@@ -67,11 +90,11 @@
         android:layout_height="24dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/age"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/DetailTitle"
         app:layout_constraintStart_toStartOf="@+id/guideline5" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/DetailAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="13+"
@@ -83,7 +106,7 @@
         app:layout_constraintTop_toTopOf="@+id/viewAge" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/DetailTags"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -93,34 +116,18 @@
         android:textColor="@color/my_red"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/DetailTitle" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_actors"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
 
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="8dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:fontFamily="sans-serif"
-        android:text="125 Reviews"
-        android:textColor="@color/my_grey"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/textView5"
@@ -132,7 +139,7 @@
         android:textColor="@color/my_white"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/DetailReview" />
 
 
     <TextView
@@ -199,3 +206,4 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
+</FrameLayout>

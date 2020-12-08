@@ -15,7 +15,9 @@ import com.example.myapplication.local.model.Actor
 import com.example.myapplication.local.model.Movie
 import com.google.android.material.imageview.ShapeableImageView
 
-class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MoviesViewHolder>() {
+class MovieAdapter(
+    private val clickListener: OnRecyclerItemClicked
+) : RecyclerView.Adapter<MovieAdapter.MoviesViewHolder>() {
     private val imageOption = RequestOptions()
         .placeholder(R.drawable.ic_movie_placeholder)
         .fallback(R.drawable.ic_movie_placeholder)
@@ -31,6 +33,9 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MoviesViewHolder>() {
 
     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
         (holder as DataViewHolder).onBind(imageOption, movies[position])
+        holder.itemView.setOnClickListener {
+            clickListener.onClick(movies[position])
+        }
     }
 
     override fun getItemCount(): Int = movies.size
@@ -54,11 +59,6 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MoviesViewHolder>() {
 
 
         fun onBind(options: RequestOptions, movie: Movie) {
-            var j:Int = 0
-//            for (i in 1..100000000) {
-//                j ++
-//
-//            }
             Glide.with(context)
                 .load(movie.poster)
                 .apply(options)
@@ -79,7 +79,9 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MoviesViewHolder>() {
     }
 }
 
-
+interface OnRecyclerItemClicked {
+    fun onClick(movie: Movie)
+}
 
 private val RecyclerView.ViewHolder.context
     get() = this.itemView.context

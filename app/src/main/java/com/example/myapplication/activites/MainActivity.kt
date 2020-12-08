@@ -12,6 +12,7 @@ import androidx.core.view.updateLayoutParams
 import com.example.myapplication.R
 import com.example.myapplication.fragments.FragmentMoviesDetails
 import com.example.myapplication.fragments.FragmentMoviesList
+import com.example.myapplication.local.MockRepository
 import kotlinx.android.synthetic.main.activity_main.fragments_container
 import timber.log.Timber
 import kotlin.system.exitProcess
@@ -34,10 +35,10 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 .apply {
                     add(
-//                        R.id.fragments_container,
-//                        FragmentMoviesList.newInstance()
                         R.id.fragments_container,
-                        FragmentMoviesDetails.newInstance()
+                        FragmentMoviesList.newInstance()
+//                        R.id.fragments_container,
+//                        FragmentMoviesDetails.newInstance(MockRepository().getMovies()[0])
                     )
                     addToBackStack(null)
                     commit()
