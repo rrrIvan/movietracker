@@ -25,15 +25,16 @@
 
         <TextView
             android:id="@+id/textView14"
-            style="@style/text3"
+            style="@style/ListsTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:paddingStart="8dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:paddingStart="@dimen/margin_8dp"
             tools:text="Movies list"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
     </androidx.appcompat.widget.Toolbar>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_films"

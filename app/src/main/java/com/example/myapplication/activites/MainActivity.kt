@@ -12,7 +12,6 @@ import androidx.core.view.updateLayoutParams
 import com.example.myapplication.R
 import com.example.myapplication.fragments.FragmentMoviesDetails
 import com.example.myapplication.fragments.FragmentMoviesList
-import com.example.myapplication.local.MockRepository
 import kotlinx.android.synthetic.main.activity_main.fragments_container
 import timber.log.Timber
 import kotlin.system.exitProcess
@@ -22,14 +21,10 @@ class MainActivity : AppCompatActivity() {
     private var topMargin: Int = 0
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         setFullScreen()
-
-
 
         if (savedInstanceState == null)
             supportFragmentManager.beginTransaction()
@@ -37,17 +32,10 @@ class MainActivity : AppCompatActivity() {
                     add(
                         R.id.fragments_container,
                         FragmentMoviesList.newInstance()
-//                        R.id.fragments_container,
-//                        FragmentMoviesDetails.newInstance(MockRepository().getMovies()[0])
                     )
                     addToBackStack(null)
                     commit()
                 }
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        if (supportFragmentManager.fragments.isEmpty()) exitProcess(0)
     }
 
     private fun setFullScreen() {
@@ -55,14 +43,21 @@ class MainActivity : AppCompatActivity() {
             window.setDecorFitsSystemWindows(false)
         } else {
 
-            fragments_container.systemUiVisibility = SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                    SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            fragments_container.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         }
-        val idStatusBarHeight: Int = resources.getIdentifier("status_bar_height", "dimen", "android")
+        val idStatusBarHeight: Int =
+            resources.getIdentifier("status_bar_height", "dimen", "android")
         if (idStatusBarHeight > 0) {
             topMargin = resources.getDimensionPixelSize(idStatusBarHeight)
         }
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if (supportFragmentManager.fragments.isEmpty()) exitProcess(0)
+    }
+
 
     override fun setSupportActionBar(toolbar: Toolbar?) {
         super.setSupportActionBar(toolbar)
@@ -70,7 +65,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-public fun View.updateMarginTop(value: Int) {
+fun View.updateMarginTop(value: Int) {
     updateLayoutParams<ViewGroup.MarginLayoutParams> {
         topMargin = value
     }

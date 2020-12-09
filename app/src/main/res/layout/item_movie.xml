@@ -19,134 +19,149 @@
         app:strokeWidth="1dp">
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
 
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/gradient_bc">
-
-
-            <ImageView
-                android:id="@+id/ListsPoster"
-                tools:src="@drawable/movie"
-
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:scaleType="centerCrop"
-                app:layout_constraintDimensionRatio="166:248"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="@drawable/mask__1_"
-                android:scaleType="fitXY"
-                app:layout_constraintBottom_toBottomOf="@+id/ListsPoster"
-                app:layout_constraintEnd_toEndOf="@+id/ListsPoster"
-
-                app:layout_constraintStart_toStartOf="@+id/ListsPoster"
-                app:layout_constraintTop_toTopOf="@+id/ListsPoster"
-                 />
-
-            <View
-                android:id="@+id/viewAge"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="6dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/age"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/gradient_bc">
 
 
-            <TextView
-                android:id="@+id/ListsAgeLimit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="13+"
-                android:textColor="@color/my_white"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@+id/viewAge"
-                app:layout_constraintEnd_toEndOf="@+id/viewAge"
-                app:layout_constraintStart_toStartOf="@+id/viewAge"
-                app:layout_constraintTop_toTopOf="@+id/viewAge" />
+        <ImageView
+            android:id="@+id/ListsPoster"
+            android:layout_width="0dp"
+
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="166:248"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/movie" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/mask__1_"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="@+id/ListsPoster"
+            app:layout_constraintEnd_toEndOf="@+id/ListsPoster"
+
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/ListsPoster"
+            app:layout_constraintTop_toTopOf="@+id/ListsPoster"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <View
+            android:id="@+id/viewAge"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/age"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-            <ImageView
-                android:id="@+id/ListsStars"
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_marginStart="6dp"
-                android:layout_marginBottom="10dp"
-                app:layout_constraintBottom_toBottomOf="@+id/ListsPoster"
-
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/star_icon" />
-
-
-            <TextView
-                android:id="@+id/ListsReviews"
-                style="@style/text1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginBottom="8dp"
-                android:textSize="8sp"
-                app:layout_constraintBottom_toBottomOf="@+id/ListsPoster"
-                app:layout_constraintStart_toEndOf="@+id/ListsStars"
-                tools:text="@string/text2" />
-
-            <TextView
-                android:id="@+id/ListsTags"
-                style="@style/text2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginBottom="8dp"
-                android:textSize="8sp"
-                app:layout_constraintBottom_toTopOf="@+id/ListsStars"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:text="@string/text1" />
-
-            <TextView
-                android:id="@+id/ListsTitle"
-                style="@style/text3"
-                tools:text="Avengers: End Game"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:layout_marginTop="8dp"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ListsPoster" />
-
-            <TextView
-                android:id="@+id/ListsDuration"
-                style="@style/text1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                tools:text="137 min"
-
-                android:textSize="8sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ListsTitle" />
+        <TextView
+            android:id="@+id/ListsAgeLimit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/cl_white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/viewAge"
+            app:layout_constraintEnd_toEndOf="@+id/viewAge"
+            app:layout_constraintStart_toStartOf="@+id/viewAge"
+            app:layout_constraintTop_toTopOf="@+id/viewAge"
+            tools:text="13+" />
 
 
+        <com.example.myapplication.custom_raiting_bar.RatingBarSvg
+            android:id="@+id/ListsStars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:numStars="5"
+            android:progressBackgroundTint="@color/cl_grey"
+            android:progressDrawable="@drawable/ratingbar_svg_selector"
+            android:progressTint="@color/cl_red"
+            android:rating="0"
+            android:secondaryProgressTint="@color/cl_grey"
+            android:stepSize="1"
+            app:drawableHeight="8dp"
+            app:drawableWidth="8dp"
+            app:innerPadding="2dp"
+            android:isIndicator="true"
+            app:layout_constraintBottom_toBottomOf="@+id/ListsPoster"
 
-            <ImageView
-                android:id="@+id/ListsLike"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_marginTop="13dp"
-                android:layout_marginEnd="6dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/like"/>
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="@+id/guideline" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/ListsReviews"
+            style="@style/DetailTextReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:textSize="8sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ListsStars"
+            app:layout_constraintStart_toEndOf="@+id/ListsStars"
+            tools:text="@string/text2" />
+
+        <TextView
+            android:id="@+id/ListsTags"
+            style="@style/ListsTags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            app:layout_constraintBottom_toTopOf="@+id/ListsStars"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            tools:text="@string/text1" />
+
+        <TextView
+            android:id="@+id/ListsTitle"
+            style="@style/ListsTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/ListsPoster"
+            tools:text="Avengers: End Game" />
+
+        <TextView
+            android:id="@+id/ListsDuration"
+            style="@style/ListsReviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/ListsTitle"
+            tools:text="137 min" />
+
+
+        <ImageView
+            android:id="@+id/ListsLike"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="13dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/like"
+            android:contentDescription="@string/like" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="8dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="6dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

@@ -15,34 +15,36 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/DetailLike"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/like" />
 
-    <ImageView
+
+    <com.example.myapplication.custom_raiting_bar.RatingBarSvg
         android:id="@+id/DetailStars"
-        android:layout_width="14dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:numStars="5"
+        android:progressBackgroundTint="@color/cl_grey"
+        android:isIndicator="true"
+        android:stepSize="1"
+        android:progressDrawable="@drawable/ratingbar_svg_selector"
+        android:progressTint="@color/cl_red"
+        android:rating="0"
+        android:secondaryProgressTint="@color/cl_grey"
+        app:drawableHeight="12dp"
+        app:drawableWidth="12dp"
+        app:innerPadding="3dp"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/DetailTags"
-        app:srcCompat="@drawable/star_icon" />
+        app:layout_constraintTop_toBottomOf="@+id/DetailTags" />
+
 
     <TextView
         android:id="@+id/DetailReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:fontFamily="sans-serif"
-        android:text="125 Reviews"
-        android:textColor="@color/my_grey"
-        android:textStyle="bold"
+        style="@style/DetailTextReview"
+        tools:text="125 Reviews"
         app:layout_constraintBottom_toBottomOf="@+id/DetailStars"
         app:layout_constraintStart_toEndOf="@+id/DetailStars"
         app:layout_constraintTop_toTopOf="@+id/DetailStars" />
@@ -72,13 +74,8 @@
         android:id="@+id/DetailTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
-        android:text="@string/film_name"
-        android:textAlignment="viewStart"
-        android:textColor="@color/my_white"
-        android:textSize="40sp"
-        android:textStyle="bold"
-
+        tools:text="@string/film_name"
+        style="@style/DetailTextTitle"
         app:layout_constraintBottom_toBottomOf="@+id/DetailPoster"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
@@ -88,7 +85,7 @@
         android:id="@+id/viewAge"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="@dimen/margin_8dp"
         android:background="@drawable/age"
         app:layout_constraintBottom_toTopOf="@+id/DetailTitle"
         app:layout_constraintStart_toStartOf="@+id/guideline5" />
@@ -97,9 +94,8 @@
         android:id="@+id/DetailAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="13+"
-        android:textColor="@color/my_white"
-        android:textSize="12sp"
+        tools:text="13+"
+        style="@style/DetailTextAge"
         app:layout_constraintBottom_toBottomOf="@+id/viewAge"
         app:layout_constraintEnd_toEndOf="@+id/viewAge"
         app:layout_constraintStart_toStartOf="@+id/viewAge"
@@ -110,10 +106,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-
-        android:fontFamily="sans-serif"
-        android:text="Action, Adventure, Fantasy"
-        android:textColor="@color/my_red"
+        tools:text="Action, Adventure, Fantasy"
+        android:textColor="@color/cl_red"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/DetailTitle" />
@@ -124,7 +118,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="7dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -134,9 +128,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:fontFamily="sans-serif"
-        android:text="Storyline"
-        android:textColor="@color/my_white"
+        android:text="@string/storyline"
+        android:textColor="@color/cl_white"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/DetailReview" />
@@ -147,13 +140,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/roboto_thin"
         android:lineSpacingExtra="6sp"
         android:paddingTop="0dp"
 
         android:text="After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe."
         android:textAlignment="viewStart"
-        android:textColor="@color/my_white"
+        android:textColor="@color/cl_white"
         android:typeface="normal"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
@@ -163,9 +156,9 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:text="Cast"
-        android:textColor="@color/my_white"
+        android:textColor="@color/cl_white"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -178,15 +171,29 @@
         android:fitsSystemWindows="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:text="Back"
-            android:textColor="@color/my_grey"
+            android:textColor="@color/cl_grey"
             android:textSize="14sp"
-            app:drawableLeftCompat="@drawable/ic_baseline" />
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"/>
+
+            <ImageView
+                android:id="@+id/DetailLike"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+
+                android:layout_marginEnd="16dp"
+                android:layout_alignParentEnd="true"
+                tools:src="@drawable/like" />
+        </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.Guideline

@@ -13,8 +13,10 @@ data class Movie(
     val runtime: Int,
     val votes: Int,
     val age: Int,
+    val is_like: Boolean,
     val genres: List<Genre>,
-    val actors: List<Actor>
+    val actors: List<Actor>,
+
 ): Parcelable {
 
     constructor(parcel: Parcel) : this(
@@ -27,6 +29,7 @@ data class Movie(
         parcel.readInt(),
         parcel.readInt(),
         parcel.readInt(),
+        parcel.readBoolean(),
         parcel.createTypedArrayList(Genre)!!,
         parcel.createTypedArrayList(Actor)!!,
 
@@ -42,6 +45,7 @@ data class Movie(
         out_parcel.writeInt(runtime)
         out_parcel.writeInt(votes)
         out_parcel.writeInt(age)
+        out_parcel.writeBoolean(is_like)
         out_parcel.writeTypedList(genres)
         out_parcel.writeTypedList(actors)
     }

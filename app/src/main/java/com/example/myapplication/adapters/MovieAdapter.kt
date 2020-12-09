@@ -5,22 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.example.myapplication.R
-import com.example.myapplication.local.model.Actor
-import com.example.myapplication.local.model.Movie
-import com.google.android.material.imageview.ShapeableImageView
+import com.example.myapplication.data.Movie
+import com.example.myapplication.utils.loadImage
 
 class MovieAdapter(
     private val clickListener: OnRecyclerItemClicked
 ) : RecyclerView.Adapter<MovieAdapter.MoviesViewHolder>() {
-    private val imageOption = RequestOptions()
-        .placeholder(R.drawable.ic_movie_placeholder)
-        .fallback(R.drawable.ic_movie_placeholder)
+
 
     private var movies = listOf<Movie>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
@@ -32,7 +31,7 @@ class MovieAdapter(
     }
 
     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
-        (holder as DataViewHolder).onBind(imageOption, movies[position])
+        (holder as DataViewHolder).onBind(movies[position])
         holder.itemView.setOnClickListener {
             clickListener.onClick(movies[position])
         }
@@ -49,7 +48,7 @@ class MovieAdapter(
     private class DataViewHolder(itemView: View) : MoviesViewHolder(itemView) {
 
         private val poster: ImageView = itemView.findViewById(R.id.ListsPoster)
-        private val rating: ImageView = itemView.findViewById(R.id.ListsStars)
+        private val rating: RatingBar = itemView.findViewById(R.id.ListsStars)
         private val isLike: ImageView = itemView.findViewById(R.id.ListsLike)
         private val title: TextView = itemView.findViewById(R.id.ListsTitle)
         private val ageLimit: TextView = itemView.findViewById(R.id.ListsAgeLimit)
@@ -58,23 +57,17 @@ class MovieAdapter(
         private val reviews: TextView = itemView.findViewById(R.id.ListsReviews)
 
 
-        fun onBind(options: RequestOptions, movie: Movie) {
-            Glide.with(context)
-                .load(movie.poster)
-                .apply(options)
-                .into(poster)
-            val drawable: Drawable? = if (movie.isLiked) {
-                ContextCompat.getDrawable(context, R.drawable.like)
-            } else {
-                ContextCompat.getDrawable(context, R.drawable.no_like)
-            }
-            tags.text = movie.tags.joinToString(separator = ", ")
+        fun onBind(movie: Movie) {
+            loadImage(context, movie.poster, poster)
+            tags.text = movie.genres.joinToString(separator = ", ")
+            val like = if (movie.is_like) R.drawable.like else R.drawable.no_like
+            val drawable: Drawable? = ContextCompat.getDrawable(context, like)
             isLike.setImageDrawable(drawable)
-            reviews.text = movie.reviews.toString().plus(" REVIEWS")
-            rating.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.star_icon))
+            reviews.text = movie.votes.toString().plus(" REVIEWS")
+            rating.rating = movie.ratings / 2
             title.text = movie.title
-            ageLimit.text = movie.ageLimit.toString()
-            duration.text = movie.duration.toString().plus(" min")
+            ageLimit.text = movie.age.toString().plus("+")
+            duration.text = movie.runtime.toString().plus(" min")
         }
     }
 }

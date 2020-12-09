@@ -8,12 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background_color">#FF191926</color>
-    <color name="my_grey">#6D6D80</color>
-    <color name="qqq">#13C53A</color>
-    <color name="my_red">#FF3466</color>
-    <color name="my_white">#FFECECEC</color>
-    <color name="cl_white">#80FFFFFF</color>
-    <color name="my_linear">#80636375</color>
+    <color name="cl_grey">#6D6D80</color>
+    <color name="cl_red">#FF3466</color>
+    <color name="cl_white">#FFECECEC</color>
     <color name="border_color">#636375</color>
     <color name="text_actors_white">#D8D8D8</color>
 </resources>

@@ -12,31 +12,47 @@
 <!--        <item name="android:windowTranslucentStatus">true</item>-->
     </style>
     <style name="MyCardView" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/activityBackground</item>
         <item name="cardBackgroundColor">@color/background_color</item>
     </style>
 
+    <style name="DetailTextTitle" >
+        <item name="android:textColor">@color/cl_white</item>
+        <item name="android:fontFamily">@font/roboto_black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:textAlignment">viewStart</item>
+
+    </style>
+
+    <style name="DetailTextReview" >
+        <item name="android:textColor">@color/cl_grey</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DetailTextAge" >
+        <item name="android:textColor">@color/cl_white</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="DetailTextTags" >
+        <item name="android:textColor">@color/cl_red</item>
+        <item name="android:textSize">12sp</item>
+    </style>
     <style name="DetailsPosterST" parent="">
         <item name="cornerSizeTopRight">75dp</item>
         <item name="cornerSizeTopLeft">75dp</item>
         <item name="cornerFamilyTopRight">rounded</item>
     </style>
-    <style name="text1" >
-        <item name="android:textColor">@color/my_grey</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textStyle">bold</item>
-
+    <style name="ListsReviews" parent="DetailTextReview">
+          <item name="android:textSize">8sp</item>
     </style>
-    <style name="text2" >
-        <item name="android:textColor">@color/my_red</item>
+    <style name="ListsTags" >
+        <item name="android:textColor">@color/cl_red</item>
         <item name="android:fontFamily">sans-serif</item>
-
+        <item name="android:textSize">8sp</item>
     </style>
-    <style name="text3" >
-        <item name="android:textColor">@color/my_white</item>
+    <style name="ListsTitle" >
+        <item name="android:textColor">@color/cl_white</item>
         <item name="android:textSize">40sp</item>
         <item name="android:singleLine">false</item>
         <item name="android:textStyle">bold</item>
@@ -44,8 +60,21 @@
         <item name="android:textAlignment">viewStart</item>
 
     </style>
+    <style name="ShapeAppearanceOverlay" parent="">
+        <item name="cornerSize">4dp</item>
+    <item name="cornerFamily">rounded</item>
+    </style>
 
-    <color name="colorPrimary">#4CAF50</color>
+
+
+    <style name="GlassRating" >
+        <item name="android:minHeight">10dp</item>
+        <item name="android:minWidth">10dp</item>
+        <item name="colorControlNormal">@color/cl_red</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
+        <item name="android:progressDrawable">@drawable/rating_bar_bg</item>
+    </style>
+    <color name="colorPrimary">@color/background_color</color>
     <color name="colorPrimaryDark">#FFC107</color>
     <color name="colorAccent">#00BCD4</color>
     <color name="activityBackground">#673AB7</color>

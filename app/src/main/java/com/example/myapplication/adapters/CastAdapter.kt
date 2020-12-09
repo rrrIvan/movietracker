@@ -1,23 +1,19 @@
 package com.example.myapplication.adapters
 
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.example.myapplication.R
-import com.example.myapplication.local.model.Actor
-import com.example.myapplication.local.model.Movie
+import com.example.myapplication.data.Actor
+import com.example.myapplication.utils.loadImage
 
 class CastAdapter : RecyclerView.Adapter<CastAdapter.CastViewHolder>() {
-    private val imageOption = RequestOptions()
-        .placeholder(R.drawable.ic_avatar_placeholder)
-        .fallback(R.drawable.ic_avatar_placeholder)
 
     private var cast = listOf<Actor>()
 
@@ -33,7 +29,7 @@ class CastAdapter : RecyclerView.Adapter<CastAdapter.CastViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: CastViewHolder, position: Int) {
-        (holder as DataViewHolder).onBind(imageOption, cast[position])
+        (holder as DataViewHolder).onBind(cast[position])
     }
 
     override fun getItemCount(): Int = cast.size
@@ -50,18 +46,17 @@ class CastAdapter : RecyclerView.Adapter<CastAdapter.CastViewHolder>() {
         private val name: TextView = itemView.findViewById(R.id.ActorName)
 
 
-        fun onBind(options: RequestOptions, actor: Actor) {
-            Glide.with(context)
-                .load(actor.avatar)
-                .apply(options)
-                .into(photo)
+        fun onBind(actor: Actor) {
+            loadImage(context,actor.picture,photo,
+                RequestOptions()
+                    .placeholder(R.drawable.ic_baseline_person_outline_24)
+                    .fallback(R.drawable.ic_baseline_person_outline_24)
+                )
             name.text = actor.name
         }
     }
 
-
 }
-
 
 private val RecyclerView.ViewHolder.context
     get() = this.itemView.context

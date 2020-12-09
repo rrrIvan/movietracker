@@ -6,26 +6,34 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.example.myapplication.R
 import com.example.myapplication.activites.MainActivity
 import com.example.myapplication.adapters.CastAdapter
-import com.example.myapplication.local.model.Movie
+import com.example.myapplication.custom_raiting_bar.RatingBarSvg
+import com.example.myapplication.data.Movie
+import com.example.myapplication.utils.loadImage
 
 class FragmentMoviesDetails : Fragment() {
 
     private var recycler: RecyclerView? = null
     private var param1: Movie? = null
-    private val imageOption = RequestOptions()
-        .placeholder(R.drawable.ic_movie_placeholder)
-        .fallback(R.drawable.ic_movie_placeholder)
+    private lateinit var poster: ImageView
+    private lateinit var rating: RatingBarSvg
+    private lateinit var isLike: ImageView
+    private lateinit var title: TextView
+    private lateinit var ageLimit: TextView
+    private lateinit var tags: TextView
+    private lateinit var reviews: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -37,7 +45,15 @@ class FragmentMoviesDetails : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_movies_details, container, false)
+        val view = inflater.inflate(R.layout.fragment_movies_details, container, false)
+        poster = view.findViewById(R.id.DetailPoster)
+        rating = view.findViewById(R.id.DetailStars)
+        isLike = view.findViewById(R.id.DetailLike)
+        title = view.findViewById(R.id.DetailTitle)
+        ageLimit = view.findViewById(R.id.DetailAge)
+        tags = view.findViewById(R.id.DetailTags)
+        reviews = view.findViewById(R.id.DetailReview)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -54,28 +70,17 @@ class FragmentMoviesDetails : Fragment() {
 
         }
 
-        val poster: ImageView = view.findViewById(R.id.DetailPoster)
-        val rating: ImageView = view.findViewById(R.id.DetailStars)
-        val isLike: ImageView = view.findViewById(R.id.DetailLike)
-        val title: TextView = view.findViewById(R.id.DetailTitle)
-        val ageLimit: TextView = view.findViewById(R.id.DetailAge)
-        val tags: TextView = view.findViewById(R.id.DetailTags)
-        val reviews: TextView = view.findViewById(R.id.DetailReview)
-        Glide.with(view.context)
-            .load(param1?.poster)
-            .apply(imageOption)
-            .into(poster)
-        val drawable: Drawable? = if (param1?.isLiked == true) {
-            ContextCompat.getDrawable(view.context, R.drawable.like)
-        } else {
-            ContextCompat.getDrawable(view.context, R.drawable.no_like)
+        param1?.apply {
+            loadImage(view.context, poster, this@FragmentMoviesDetails.poster)
+            val like = if (param1?.is_like == true) R.drawable.like else R.drawable.no_like
+            val drawable: Drawable? = ContextCompat.getDrawable(view.context, like)
+            tags.text = param1?.genres?.joinToString(separator = ", ")
+            isLike.setImageDrawable(drawable)
+            reviews.text = param1?.votes.toString().plus(" REVIEWS")
+            param1?.ratings?.let { rating.rating = it / 2 }
+            this@FragmentMoviesDetails.title.text = param1?.title
+            ageLimit.text = param1?.age.toString().plus("+")
         }
-        tags.text = param1?.tags?.joinToString(separator = ", ")
-        isLike.setImageDrawable(drawable)
-        reviews.text = param1?.reviews.toString().plus(" REVIEWS")
-        rating.setImageDrawable(ContextCompat.getDrawable(view.context, R.drawable.star_icon))
-        title.text = param1?.title
-        ageLimit.text = param1?.ageLimit.toString()
 
     }
 
@@ -87,12 +92,12 @@ class FragmentMoviesDetails : Fragment() {
 
     private fun updateData() {
         (recycler?.adapter as? CastAdapter)?.apply {
-            param1?.cast?.let { bindCast(it) }
+            param1?.actors?.let { bindCast(it) }
         }
     }
 
     companion object {
-         @JvmStatic
+        @JvmStatic
         fun newInstance(param: Movie) =
             FragmentMoviesDetails().apply {
                 arguments = Bundle().apply {

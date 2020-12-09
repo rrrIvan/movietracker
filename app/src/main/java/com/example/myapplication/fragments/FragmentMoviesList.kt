@@ -4,22 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
+import com.example.myapplication.ExampleApp
 import com.example.myapplication.R
 import com.example.myapplication.activites.MainActivity
 import com.example.myapplication.adapters.GridDividerItemDecoration
 import com.example.myapplication.adapters.MovieAdapter
 import com.example.myapplication.adapters.OnRecyclerItemClicked
-import com.example.myapplication.local.MockRepository
-import com.example.myapplication.local.model.Actor
-import com.example.myapplication.local.model.Movie
-import com.google.android.material.snackbar.Snackbar
+import com.example.myapplication.local.getRepository
+import com.example.myapplication.data.Movie
 
 
 class FragmentMoviesList : Fragment() {
@@ -61,7 +56,7 @@ class FragmentMoviesList : Fragment() {
 
     private fun updateData() {
         (recycler?.adapter as? MovieAdapter)?.apply {
-            bindMovies(MockRepository().getMovies())
+             bindMovies(ExampleApp.instanceOfMovies)
         }
     }
 

@@ -10,6 +10,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
+import kotlin.random.Random
 
 private val jsonFormat = Json { ignoreUnknownKeys = true }
 
@@ -107,6 +108,7 @@ internal fun parseMovies(
             runtime = jsonMovie.runtime,
             votes = jsonMovie.votes,
             age =  if (jsonMovie.adult) 16 else 13,
+            is_like = Random.nextBoolean(),
             genres = jsonMovie.genreIds.map {
                 genresMap[it] ?: throw IllegalArgumentException("Genre not found")
             },
