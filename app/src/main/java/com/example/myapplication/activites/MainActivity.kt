@@ -12,14 +12,13 @@ import androidx.core.view.updateLayoutParams
 import com.example.myapplication.R
 import com.example.myapplication.fragments.FragmentMoviesDetails
 import com.example.myapplication.fragments.FragmentMoviesList
+import com.example.myapplication.utils.updateMarginTop
 import kotlinx.android.synthetic.main.activity_main.fragments_container
 import timber.log.Timber
 import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
-
     private var topMargin: Int = 0
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +30,8 @@ class MainActivity : AppCompatActivity() {
                 .apply {
                     add(
                         R.id.fragments_container,
-                        FragmentMoviesList.newInstance()
+                        FragmentMoviesList.newInstance(),
+                        "start_fragment"
                     )
                     addToBackStack(null)
                     commit()
@@ -42,7 +42,6 @@ class MainActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.setDecorFitsSystemWindows(false)
         } else {
-
             fragments_container.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
                     View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         }
@@ -55,9 +54,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        if (supportFragmentManager.fragments.isEmpty()) exitProcess(0)
+        if (supportFragmentManager.fragments.size == 1)
+            finish()
     }
-
 
     override fun setSupportActionBar(toolbar: Toolbar?) {
         super.setSupportActionBar(toolbar)
@@ -65,8 +64,3 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-fun View.updateMarginTop(value: Int) {
-    updateLayoutParams<ViewGroup.MarginLayoutParams> {
-        topMargin = value
-    }
-}

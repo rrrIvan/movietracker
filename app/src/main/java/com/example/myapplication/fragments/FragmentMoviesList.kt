@@ -21,7 +21,6 @@ class FragmentMoviesList : Fragment() {
     private var recycler: RecyclerView? = null
     private var orientation: Int? = null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         orientation = resources.configuration.orientation
@@ -36,10 +35,7 @@ class FragmentMoviesList : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as MainActivity?)?.let {
-            it.setSupportActionBar(view.findViewById(R.id.toolbar_trans2))
-        }
-
+        (activity as MainActivity?)?.setSupportActionBar(view.findViewById(R.id.toolbar_trans2))
         val lManager = GridLayoutManager(context, (orientation ?: 1) * 2)
         recycler = view.findViewById<RecyclerView>(R.id.rv_films)
         recycler?.apply {
@@ -56,7 +52,7 @@ class FragmentMoviesList : Fragment() {
 
     private fun updateData() {
         (recycler?.adapter as? MovieAdapter)?.apply {
-             bindMovies(ExampleApp.instanceOfMovies)
+            bindMovies(ExampleApp.instanceOfMovies)
         }
     }
 

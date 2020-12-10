@@ -3,4 +3,8 @@
     <dimen name="leftnargin_star">3dp</dimen>
     <dimen name="actor_size">80dp</dimen>
     <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="marginBottomDetailREcycler">8dp</dimen>
+    <dimen name="marginTopDetailRecycler">7dp</dimen>
+    <dimen name="DetailOverviewSpaceExtra">6sp</dimen>
+    <dimen name="DetailOverviewTop">4dp</dimen>
 </resources>

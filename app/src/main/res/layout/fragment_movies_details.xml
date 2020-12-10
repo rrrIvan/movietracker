@@ -28,11 +28,11 @@
         android:stepSize="1"
         android:progressDrawable="@drawable/ratingbar_svg_selector"
         android:progressTint="@color/cl_red"
-        android:rating="0"
+        android:rating="3"
         android:secondaryProgressTint="@color/cl_grey"
-        app:drawableHeight="12dp"
-        app:drawableWidth="12dp"
-        app:innerPadding="3dp"
+        app:drawableHeight="16dp"
+        app:drawableWidth="16dp"
+        app:innerPadding="2dp"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/DetailTags" />
@@ -40,14 +40,15 @@
 
     <TextView
         android:id="@+id/DetailReview"
+        style="@style/DetailTextReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        style="@style/DetailTextReview"
-        tools:text="125 Reviews"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/DetailStars"
         app:layout_constraintStart_toEndOf="@+id/DetailStars"
-        app:layout_constraintTop_toTopOf="@+id/DetailStars" />
+        app:layout_constraintTop_toTopOf="@+id/DetailStars"
+        tools:text="125 Reviews" />
 
     <ImageView
         android:id="@+id/DetailPoster"
@@ -55,7 +56,7 @@
         android:layout_height="0dp"
         android:scaleType="centerCrop"
         android:src="@drawable/orig"
-        app:layout_constraintDimensionRatio="375:298"
+        app:layout_constraintDimensionRatio="@string/DetailsRatioPoster"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -106,25 +107,26 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        tools:text="Action, Adventure, Fantasy"
         android:textColor="@color/cl_red"
+        android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/DetailTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/DetailTitle"
+        tools:text="Action, Adventure, Fantasy" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_actors"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
-        android:layout_marginTop="7dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        android:layout_marginTop="@dimen/marginTopDetailRecycler"
+        android:layout_marginBottom="@dimen/marginBottomDetailREcycler"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/DetailStoryline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -136,21 +138,18 @@
 
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/DetailOverview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/roboto_thin"
-        android:lineSpacingExtra="6sp"
-        android:paddingTop="0dp"
-
-        android:text="After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe."
-        android:textAlignment="viewStart"
-        android:textColor="@color/cl_white"
-        android:typeface="normal"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        android:layout_marginTop="@dimen/DetailOverviewTop"
+        style="@style/DetailTextOverview"
+          app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/DetailStoryline"
+
+        tools:text="After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe."
+          />
+
 
     <TextView
         android:id="@+id/textView7"
@@ -161,7 +160,7 @@
         android:textColor="@color/cl_white"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/DetailOverview" />
 
 
     <androidx.appcompat.widget.Toolbar
@@ -174,15 +173,14 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Back"
-            android:textColor="@color/cl_grey"
-            android:textSize="14sp"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"/>
+            <ImageView
+                android:id="@+id/DetailBackButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_baseline_keyboard_backspace_24"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                app:tint="@color/cl_white" />
 
             <ImageView
                 android:id="@+id/DetailLike"
@@ -209,6 +207,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="16dp" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

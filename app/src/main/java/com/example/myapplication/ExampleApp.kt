@@ -11,13 +11,14 @@ class ExampleApp : Application() {
         lateinit var instanceOfMovies: List<Movie>
             private set
     }
+
     override fun onCreate() {
         super.onCreate()
         Timber.plant(Timber.DebugTree());
         instanceOfMovies = getRepository(this)
 
-    }
 
+    }
 
 
 }
