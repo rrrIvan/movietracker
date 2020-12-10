@@ -24,7 +24,7 @@ class FragmentMoviesDetails : Fragment() {
 
     private lateinit var recycler: RecyclerView
     private lateinit var param1: Movie
-    private lateinit var frPoster: ImageView
+    private lateinit var frBackdrop: ImageView
     private lateinit var frRating: RatingBarSvg
     private lateinit var frIsLike: ImageView
     private lateinit var frTtle: TextView
@@ -46,7 +46,7 @@ class FragmentMoviesDetails : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_movies_details, container, false)
-        frPoster = view.findViewById(R.id.DetailPoster)
+        frBackdrop = view.findViewById(R.id.DetailPoster)
         frRating = view.findViewById(R.id.DetailStars)
         frIsLike = view.findViewById(R.id.DetailLike)
         frTtle = view.findViewById(R.id.DetailTitle)
@@ -72,7 +72,7 @@ class FragmentMoviesDetails : Fragment() {
         }
 
         param1.apply {
-            loadImage(view.context, poster, frPoster)
+            loadImage(view.context, backdrop, frBackdrop)
             val like = if (is_like) R.drawable.like else R.drawable.no_like
             val drawable: Drawable? = ContextCompat.getDrawable(view.context, like)
             frTags.text = genres.joinToString(separator = ", ")
@@ -97,7 +97,7 @@ class FragmentMoviesDetails : Fragment() {
     }
 
     private fun updateData() {
-        (recycler?.adapter as? CastAdapter)?.apply {
+        (recycler.adapter as? CastAdapter)?.apply {
             bindCast(param1.actors)
         }
     }

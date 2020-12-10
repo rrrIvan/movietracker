@@ -6,8 +6,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.example.myapplication.R
 import com.example.myapplication.data.Actor
@@ -47,13 +45,17 @@ class CastAdapter : RecyclerView.Adapter<CastAdapter.CastViewHolder>() {
 
 
         fun onBind(actor: Actor) {
-            loadImage(context,actor.picture,photo,
+
+            loadImage(
+                context,
+                actor.picture,photo,
                 RequestOptions()
                     .placeholder(R.drawable.ic_baseline_person_outline_24)
                     .fallback(R.drawable.ic_baseline_person_outline_24)
                 )
             name.text = actor.name
         }
+
     }
 
 }
