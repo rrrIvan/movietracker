@@ -5,7 +5,6 @@ import com.example.myapplication.data.Movie
 import com.example.myapplication.local.getRepository
 import timber.log.Timber
 
-
 class ExampleApp : Application() {
     companion object {
         lateinit var instanceOfMovies: List<Movie>
@@ -14,11 +13,7 @@ class ExampleApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        Timber.plant(Timber.DebugTree());
+        Timber.plant(Timber.DebugTree())
         instanceOfMovies = getRepository(this)
-
-
     }
-
-
 }

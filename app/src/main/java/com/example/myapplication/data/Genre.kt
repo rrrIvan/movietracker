@@ -3,7 +3,7 @@ package com.example.myapplication.data
 import android.os.Parcel
 import android.os.Parcelable
 
-data class Genre(val id: Int, val name: String): Parcelable {
+data class Genre(val id: Int, val name: String) : Parcelable {
     override fun toString(): String {
         return name
     }

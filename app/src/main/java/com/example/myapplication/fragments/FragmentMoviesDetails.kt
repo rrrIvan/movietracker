@@ -42,7 +42,8 @@ class FragmentMoviesDetails : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_movies_details, container, false)
@@ -68,7 +69,6 @@ class FragmentMoviesDetails : Fragment() {
             layoutManager = lManager
             adapter = CastAdapter()
             addItemDecoration(LinearItemDecoration(2.toPx, 16.toPx))
-
         }
 
         param1.apply {
@@ -87,7 +87,6 @@ class FragmentMoviesDetails : Fragment() {
         back.setOnClickListener {
             this.fragmentManager?.popBackStack()
         }
-
     }
 
     override fun onStart() {

@@ -43,21 +43,19 @@ class CastAdapter : RecyclerView.Adapter<CastAdapter.CastViewHolder>() {
         private val photo: ImageView = itemView.findViewById(R.id.ActorPhoto)
         private val name: TextView = itemView.findViewById(R.id.ActorName)
 
-
         fun onBind(actor: Actor) {
 
             loadImage(
                 context,
-                actor.picture,photo,
+                actor.picture,
+                photo,
                 RequestOptions()
                     .placeholder(R.drawable.ic_baseline_person_outline_24)
                     .fallback(R.drawable.ic_baseline_person_outline_24)
-                )
+            )
             name.text = actor.name
         }
-
     }
-
 }
 
 private val RecyclerView.ViewHolder.context

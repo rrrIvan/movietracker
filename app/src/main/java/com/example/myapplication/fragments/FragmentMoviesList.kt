@@ -7,15 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.ExampleApp
 import com.example.myapplication.R
 import com.example.myapplication.activites.MainActivity
 import com.example.myapplication.adapters.GridDividerItemDecoration
 import com.example.myapplication.adapters.MovieAdapter
 import com.example.myapplication.adapters.OnRecyclerItemClicked
-import com.example.myapplication.local.getRepository
 import com.example.myapplication.data.Movie
-
 
 class FragmentMoviesList : Fragment() {
     private var recycler: RecyclerView? = null

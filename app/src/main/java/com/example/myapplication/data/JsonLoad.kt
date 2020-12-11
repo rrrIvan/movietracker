@@ -4,13 +4,13 @@ import android.content.Context
 import com.example.myapplication.data.Actor
 import com.example.myapplication.data.Genre
 import com.example.myapplication.data.Movie
+import kotlin.random.Random
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.SerialName
-import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
-import kotlin.random.Random
+import kotlinx.serialization.json.Json
 
 private val jsonFormat = Json { ignoreUnknownKeys = true }
 
@@ -78,13 +78,13 @@ internal suspend fun loadMovies(context: Context): List<Movie> = withContext(Dis
     parseMovies(data, genresMap, actorsMap)
 }
 
-internal fun getRepository(context: Context):List<Movie>{
+internal fun getRepository(context: Context): List<Movie> {
     val dataMovies = readAssetFileToString(context, "data.json")
     val dataActors = readAssetFileToString(context, "people.json")
     val dataGenres = readAssetFileToString(context, "genres.json")
     val actors = parseActors(dataActors)
     val genres = parseGenres(dataGenres)
-    return parseMovies(data = dataMovies,genres = genres,actors = actors)
+    return parseMovies(data = dataMovies, genres = genres, actors = actors)
 }
 
 internal fun parseMovies(
@@ -107,7 +107,7 @@ internal fun parseMovies(
             ratings = jsonMovie.ratings,
             runtime = jsonMovie.runtime,
             votes = jsonMovie.votes,
-            age =  if (jsonMovie.adult) 16 else 13,
+            age = if (jsonMovie.adult) 16 else 13,
             is_like = Random.nextBoolean(),
             genres = jsonMovie.genreIds.map {
                 genresMap[it] ?: throw IllegalArgumentException("Genre not found")

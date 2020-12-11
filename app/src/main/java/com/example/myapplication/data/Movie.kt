@@ -17,7 +17,7 @@ data class Movie(
     val genres: List<Genre> = listOf(),
     val actors: List<Actor> = listOf(),
 
-): Parcelable {
+) : Parcelable {
 
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
@@ -65,4 +65,3 @@ data class Movie(
         }
     }
 }
-

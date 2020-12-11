@@ -16,20 +16,20 @@ class LinearItemDecoration(
     ) {
         val itemPosition = parent.getChildAdapterPosition(view)
         if (itemPosition == RecyclerView.NO_POSITION) {
-            return;
+            return
         }
         val itemCount = state.itemCount
         /** first position */
         if (itemPosition == 0) {
-            outRect.set(paddingEdge, 0, 0, 0);
+            outRect.set(paddingEdge, 0, 0, 0)
         }
         /** last position */
         else if (itemCount > 0 && itemPosition == itemCount - 1) {
-            outRect.set(0, 0, paddingEdge, 0);
+            outRect.set(0, 0, paddingEdge, 0)
         }
         /** positions between first and last */
         else {
-            outRect.set(paddingBetween, 0, paddingBetween, 0);
+            outRect.set(paddingBetween, 0, paddingBetween, 0)
         }
     }
 }

@@ -9,9 +9,6 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.request.RequestOptions
 import com.example.myapplication.R
 import com.example.myapplication.data.Movie
 import com.example.myapplication.utils.loadImage
@@ -19,7 +16,6 @@ import com.example.myapplication.utils.loadImage
 class MovieAdapter(
     private val clickListener: OnRecyclerItemClicked
 ) : RecyclerView.Adapter<MovieAdapter.MoviesViewHolder>() {
-
 
     private var movies = listOf<Movie>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
@@ -55,7 +51,6 @@ class MovieAdapter(
         private val duration: TextView = itemView.findViewById(R.id.ListsDuration)
         private val tags: TextView = itemView.findViewById(R.id.ListsTags)
         private val reviews: TextView = itemView.findViewById(R.id.ListsReviews)
-
 
         fun onBind(movie: Movie) {
             loadImage(context, movie.poster, poster)

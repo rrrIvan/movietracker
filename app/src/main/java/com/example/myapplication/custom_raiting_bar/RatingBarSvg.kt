@@ -6,7 +6,11 @@ import android.graphics.Bitmap
 import android.graphics.BitmapShader
 import android.graphics.Canvas
 import android.graphics.Shader
-import android.graphics.drawable.*
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.ClipDrawable
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.LayerDrawable
+import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.RectShape
 import android.graphics.drawable.shapes.Shape
 import android.util.AttributeSet
@@ -19,7 +23,6 @@ import androidx.core.view.marginEnd
 import androidx.core.view.marginStart
 import androidx.core.view.marginTop
 import com.example.myapplication.R
-
 
 class RatingBarSvg @JvmOverloads constructor(
     context: Context,
@@ -87,7 +90,10 @@ class RatingBarSvg @JvmOverloads constructor(
                 val newBg = LayerDrawable(outDrawables)
 
                 for (i in 0 until numberOfLayers) {
-                    newBg.setId(i, drawable.getId(i))
+                    newBg.setId(
+                        i,
+                        drawable.getId(i)
+                    )
                 }
                 return newBg
             }
@@ -109,7 +115,8 @@ class RatingBarSvg @JvmOverloads constructor(
                     }
 
                 return if (clip) ClipDrawable(
-                    shapeDrawable, Gravity.START,
+                    shapeDrawable,
+                    Gravity.START,
                     ClipDrawable.HORIZONTAL
                 ) else shapeDrawable
             }
@@ -123,7 +130,7 @@ class RatingBarSvg @JvmOverloads constructor(
         if (drawableWidth == 0) drawableWidth = drawable.intrinsicWidth
 
         val bitmap = Bitmap.createBitmap(
-            drawableWidth + halfOfInnerPadding * 2, //dp between svg images
+            drawableWidth + halfOfInnerPadding * 2, // dp between svg images
             drawableHeight,
             Bitmap.Config.ARGB_8888
         )
