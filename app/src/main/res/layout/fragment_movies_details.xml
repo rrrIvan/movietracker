@@ -1,216 +1,210 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
+    android:fitsSystemWindows="true"
     >
-<androidx.core.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/viewroot"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
 
 
-
-    <com.example.myapplication.custom_raiting_bar.RatingBarSvg
-        android:id="@+id/DetailStars"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:numStars="5"
-        android:progressBackgroundTint="@color/cl_grey"
-        android:isIndicator="true"
-        android:stepSize="1"
-        android:progressDrawable="@drawable/ratingbar_svg_selector"
-        android:progressTint="@color/cl_red"
-        android:rating="3"
-        android:secondaryProgressTint="@color/cl_grey"
-        app:drawableHeight="16dp"
-        app:drawableWidth="16dp"
-        app:innerPadding="2dp"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/DetailTags" />
-
-
-    <TextView
-        android:id="@+id/DetailReview"
-        style="@style/DetailTextReview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/DetailStars"
-        app:layout_constraintStart_toEndOf="@+id/DetailStars"
-        app:layout_constraintTop_toTopOf="@+id/DetailStars"
-        tools:text="125 Reviews" />
-
-    <ImageView
-        android:id="@+id/DetailPoster"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/orig"
-        app:layout_constraintDimensionRatio="@string/DetailsRatioPoster"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/gradient_shape"
-        app:layout_constraintBottom_toBottomOf="@+id/DetailPoster"
-        app:layout_constraintEnd_toEndOf="@+id/DetailPoster"
-        app:layout_constraintStart_toStartOf="@+id/DetailPoster"
-        app:layout_constraintTop_toTopOf="@+id/DetailPoster" />
-
-    <TextView
-        android:id="@+id/DetailTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        tools:text="@string/film_name"
-        style="@style/DetailTextTitle"
-        app:layout_constraintBottom_toBottomOf="@+id/DetailPoster"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/DetailPoster" />
-
-    <View
-        android:id="@+id/viewAge"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginBottom="@dimen/margin_8dp"
-        android:background="@drawable/age"
-        app:layout_constraintBottom_toTopOf="@+id/DetailTitle"
-        app:layout_constraintStart_toStartOf="@+id/guideline5" />
-
-    <TextView
-        android:id="@+id/DetailAge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="13+"
-        style="@style/DetailTextAge"
-        app:layout_constraintBottom_toBottomOf="@+id/viewAge"
-        app:layout_constraintEnd_toEndOf="@+id/viewAge"
-        app:layout_constraintStart_toStartOf="@+id/viewAge"
-        app:layout_constraintTop_toTopOf="@+id/viewAge" />
-
-    <TextView
-        android:id="@+id/DetailTags"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:textColor="@color/cl_red"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/DetailTitle"
-        tools:text="Action, Adventure, Fantasy" />
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_actors"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTopDetailRecycler"
-        android:layout_marginBottom="@dimen/marginBottomDetailREcycler"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <TextView
-        android:id="@+id/DetailStoryline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/storyline"
-        android:textColor="@color/cl_white"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/DetailReview" />
-
-
-    <TextView
-        android:id="@+id/DetailOverview"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/DetailOverviewTop"
-        style="@style/DetailTextOverview"
-          app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/DetailStoryline"
-
-        tools:text="After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe."
-          />
-
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Cast"
-        android:textColor="@color/cl_white"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/DetailOverview" />
-
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_trans1"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:fitsSystemWindows="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <RelativeLayout
+        android:layout_height="300dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:fitsSystemWindows="true">
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@android:color/transparent"
+            app:title="Meassage"
+            app:maxLines="2"
+            app:expandedTitleTextAppearance="@style/TextAppearance.MyApp.Title.Expanded"
+            app:collapsedTitleTextAppearance="@style/TextAppearance.MyApp.Title.Collapsed"
+            app:expandedTitleMarginBottom="20dp"
+            app:expandedTitleMarginStart="16dp"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+
+                android:src="@drawable/orig"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+
+                android:src="@drawable/gradient_shape"/>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay" >
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/DetailLike"
+                    style="@style/DetailLike"
+                    app:srcCompat="@drawable/like" />
+            </androidx.appcompat.widget.Toolbar>
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <ImageView
-                android:id="@+id/DetailBackButton"
+
+            <TextView
+                android:id="@+id/DetailTags"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:textColor="@color/cl_red"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/viewAge"
+                app:layout_constraintStart_toStartOf="@+id/guideline5"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Action, Adventure, Fantasy"
+
+                />
+
+            <View
+                android:id="@+id/viewAge"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/age"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/guideline2" />
+
+            <TextView
+                android:id="@+id/DetailAge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_baseline_keyboard_backspace_24"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                app:tint="@color/cl_white" />
-
-            <ImageView
-                android:id="@+id/DetailLike"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_centerVertical="true"
-
-                android:layout_marginEnd="16dp"
-                android:layout_alignParentEnd="true"
-                tools:src="@drawable/like" />
-        </RelativeLayout>
-    </androidx.appcompat.widget.Toolbar>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
+                tools:text="13+"
+                style="@style/DetailTextAge"
+                app:layout_constraintBottom_toBottomOf="@+id/viewAge"
+                app:layout_constraintEnd_toEndOf="@+id/viewAge"
+                app:layout_constraintStart_toStartOf="@+id/viewAge"
+                app:layout_constraintTop_toTopOf="@+id/viewAge" />
 
 
+            <com.example.myapplication.custom_raiting_bar.RatingBarSvg
+                android:id="@+id/DetailStars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:numStars="5"
+                android:progressBackgroundTint="@color/cl_grey"
+                android:isIndicator="true"
+                android:stepSize="1"
+                android:progressDrawable="@drawable/ratingbar_svg_selector"
+                android:progressTint="@color/cl_red"
+                android:rating="0"
+                android:secondaryProgressTint="@color/cl_grey"
+                app:drawableHeight="16dp"
+                app:drawableWidth="16dp"
+                app:innerPadding="2dp"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="@+id/guideline5"
+                app:layout_constraintTop_toBottomOf="@+id/DetailTags" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
-</FrameLayout>
+            <TextView
+                android:id="@+id/DetailReview"
+                style="@style/DetailTextReview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/DetailStars"
+                app:layout_constraintStart_toEndOf="@+id/DetailStars"
+                app:layout_constraintTop_toTopOf="@+id/DetailStars"
+                tools:text="125 Reviews"
+
+                />
+
+            <TextView
+                android:id="@+id/DetailStoryline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/storyline"
+                android:textColor="@color/cl_white"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guideline5"
+                app:layout_constraintTop_toBottomOf="@+id/DetailReview" />
+
+
+            <TextView
+                android:id="@+id/DetailOverview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/DetailOverviewTop"
+                style="@style/DetailTextOverview"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toStartOf="@+id/guideline5"
+                app:layout_constraintTop_toBottomOf="@+id/DetailStoryline"
+
+                tools:text="After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe."
+                />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/cast"
+                android:textColor="@color/cl_white"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guideline5"
+                app:layout_constraintTop_toBottomOf="@+id/DetailOverview" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_actors"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTopDetailRecycler"
+                android:layout_marginBottom="@dimen/marginBottomDetailREcycler"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="16dp"
+                />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
