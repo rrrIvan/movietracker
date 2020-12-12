@@ -46,9 +46,6 @@ class RatingBarSvg @JvmOverloads constructor(
         progressDrawable = drawable
     }
 
-    /**
-     *  Remove this function if you aren't using attr.xml
-     */
     private fun getSettingsFromAttr(attrs: AttributeSet) {
         context.obtainStyledAttributes(attrs, R.styleable.RatingBarSvg).run {
             innerPadding =
@@ -61,10 +58,6 @@ class RatingBarSvg @JvmOverloads constructor(
         }
     }
 
-    /**
-     * Converts a drawable to a tiled version of itself. It will recursively
-     * traverse layer and state list drawables.
-     */
     @SuppressLint("RestrictedApi")
     private fun tileify(drawable: Drawable, clip: Boolean): Drawable {
         when (drawable) {

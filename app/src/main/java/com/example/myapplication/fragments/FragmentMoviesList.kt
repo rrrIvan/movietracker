@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.ExampleApp
 import com.example.myapplication.R
 import com.example.myapplication.activites.MainActivity
 import com.example.myapplication.adapters.GridDividerItemDecoration
@@ -33,7 +34,7 @@ class FragmentMoviesList : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as MainActivity?)?.setSupportActionBar(view.findViewById(R.id.toolbar_trans2))
+        (activity as MainActivity?)?.setSupportActionBar(view.findViewById(R.id.toolbar))
         val lManager = GridLayoutManager(context, (orientation ?: 1) * 2)
         recycler = view.findViewById<RecyclerView>(R.id.rv_films)
         recycler?.apply {
