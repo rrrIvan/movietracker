@@ -41,7 +41,7 @@
                     app:layout_constraintDimensionRatio="@string/DetailsRationPoster"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/appCompatImageView"
-                    tools:src="@drawable/orig" />
+                    tools:src="@drawable/orig"/>
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/appCompatImageView"
@@ -49,7 +49,7 @@
                     android:layout_height="match_parent"
                     android:fitsSystemWindows="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/gradient_bc_poster" />
+                    android:src="@drawable/gradient_bc_poster"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.appcompat.widget.Toolbar
@@ -62,7 +62,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/DetailLike"
                     style="@style/DetailLike"
-                    app:srcCompat="@drawable/like" />
+                    app:srcCompat="@drawable/like"/>
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -88,7 +88,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/viewAge"
                 app:layout_constraintStart_toStartOf="@+id/guideline5"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Action, Adventure, Fantasy" />
+                tools:text="Action, Adventure, Fantasy"/>
 
             <View
                 android:id="@+id/viewAge"
@@ -97,7 +97,7 @@
                 android:layout_marginTop="4dp"
                 android:background="@drawable/age"
                 app:layout_constraintEnd_toEndOf="@+id/guideline2"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
                 android:id="@+id/DetailAge"
@@ -108,7 +108,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/viewAge"
                 app:layout_constraintStart_toStartOf="@+id/viewAge"
                 app:layout_constraintTop_toTopOf="@+id/viewAge"
-                tools:text="13+" />
+                tools:text="13+"/>
 
             <com.example.myapplication.custom_raiting_bar.RatingBarSvg
                 android:id="@+id/DetailStars"
@@ -128,7 +128,7 @@
                 app:innerPadding="2dp"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="@+id/guideline5"
-                app:layout_constraintTop_toBottomOf="@+id/DetailTags" />
+                app:layout_constraintTop_toBottomOf="@+id/DetailTags"/>
 
             <TextView
                 android:id="@+id/DetailReview"
@@ -140,7 +140,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/DetailStars"
                 app:layout_constraintStart_toEndOf="@+id/DetailStars"
                 app:layout_constraintTop_toTopOf="@+id/DetailStars"
-                tools:text="125 Reviews" />
+                tools:text="125 Reviews"/>
 
             <TextView
                 android:id="@+id/DetailStoryline"
@@ -151,7 +151,7 @@
                 android:textColor="@color/cl_white"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/guideline5"
-                app:layout_constraintTop_toBottomOf="@+id/DetailReview" />
+                app:layout_constraintTop_toBottomOf="@+id/DetailReview"/>
 
             <TextView
                 android:id="@+id/DetailOverview"
@@ -162,7 +162,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/guideline2"
                 app:layout_constraintStart_toStartOf="@+id/guideline5"
                 app:layout_constraintTop_toBottomOf="@+id/DetailStoryline"
-                tools:text="After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe." />
+                tools:text="After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe."/>
 
             <TextView
                 android:id="@+id/textView7"
@@ -173,7 +173,7 @@
                 android:textColor="@color/cl_white"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/guideline5"
-                app:layout_constraintTop_toBottomOf="@+id/DetailOverview" />
+                app:layout_constraintTop_toBottomOf="@+id/DetailOverview"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_actors"
@@ -183,21 +183,21 @@
                 android:layout_marginBottom="@dimen/marginBottomDetailREcycler"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                app:layout_constraintTop_toBottomOf="@+id/textView7"/>
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_end="16dp" />
+                app:layout_constraintGuide_end="16dp"/>
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_begin="16dp" />
+                app:layout_constraintGuide_begin="16dp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
