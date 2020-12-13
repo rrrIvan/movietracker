@@ -11,7 +11,7 @@
         android:label=""
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme2">
+        android:theme="@style/AppTheme2.NoActionBar">
         <activity android:name="com.example.myapplication.activites.MainActivity"
             android:configChanges="orientation"
             >
