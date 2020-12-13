@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -64,15 +65,27 @@ class FragmentMoviesDetails : Fragment() {
         return view
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+
+        if (id == android.R.id.home) {
+            childFragmentManager.popBackStack()
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
     @SuppressLint("RestrictedApi")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
-
+        val toolbar = view.findViewById<Toolbar>(R.id.DetailsToolbar)
         (activity as MainActivity?)?.apply {
+            updateStatusBarColor(R.color.transparent)
             setSupportActionBar(toolbar)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
             supportActionBar?.setDisplayShowHomeEnabled(true)
+            supportActionBar?.setHomeButtonEnabled(true)
         }
 
         val lManager = LinearLayoutManager(context)

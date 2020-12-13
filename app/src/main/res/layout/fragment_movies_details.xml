@@ -30,6 +30,7 @@
             >
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
+                android:fitsSystemWindows="true"
                 android:layout_height="match_parent">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -52,7 +53,7 @@
                     android:src="@drawable/gradient_bc_poster" />
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+                android:id="@+id/DetailsToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"

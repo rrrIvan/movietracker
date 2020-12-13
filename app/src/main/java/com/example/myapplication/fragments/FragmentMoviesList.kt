@@ -36,7 +36,7 @@ class FragmentMoviesList : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as MainActivity?)?.updateStatusBarColor(R.color.colorPrimary)
-        (activity as MainActivity?)?.setSupportActionBar(view.findViewById(R.id.toolbar))
+        (activity as MainActivity?)?.setSupportActionBar(view.findViewById(R.id.ListToolbar))
         val lManager = GridLayoutManager(context, (orientation ?: 1) * 2)
         recycler = view.findViewById<RecyclerView>(R.id.rv_films)
         recycler?.apply {

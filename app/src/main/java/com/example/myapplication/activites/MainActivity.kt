@@ -1,17 +1,14 @@
 package com.example.myapplication.activites
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import com.example.myapplication.ExampleApp
-import com.example.myapplication.ExampleApp.Companion.instanceOfMovies
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityMainBinding
-
 import com.example.myapplication.fragments.FragmentMoviesList
 
 class MainActivity : AppCompatActivity() {
@@ -27,6 +24,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 .apply {
                     add(
+
                         R.id.fragments_container,
                         FragmentMoviesList.newInstance(),
                         "start_fragment"
@@ -35,14 +33,18 @@ class MainActivity : AppCompatActivity() {
                 }
     }
 
-    override fun setSupportActionBar(toolbar: Toolbar?) {
-        super.setSupportActionBar(toolbar)
-        // toolbar?.updateMarginTop(topMargin)
-    }
-
     fun updateStatusBarColor(color: Int) {
         val window: Window = window
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         window.statusBarColor = ContextCompat.getColor(this, color)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
