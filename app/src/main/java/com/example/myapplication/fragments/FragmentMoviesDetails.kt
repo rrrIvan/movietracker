@@ -83,9 +83,13 @@ class FragmentMoviesDetails : Fragment() {
         (activity as MainActivity?)?.apply {
             updateStatusBarColor(R.color.transparent)
             setSupportActionBar(toolbar)
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-            supportActionBar?.setDisplayShowHomeEnabled(true)
-            supportActionBar?.setHomeButtonEnabled(true)
+            supportActionBar?.apply {
+                setDisplayHomeAsUpEnabled(true)
+                setDisplayShowHomeEnabled(true)
+                setHomeButtonEnabled(true)
+                elevation = 0.0f
+            }
+
         }
 
         val lManager = LinearLayoutManager(context)
