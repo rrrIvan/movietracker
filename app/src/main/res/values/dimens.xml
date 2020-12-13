@@ -7,4 +7,7 @@
     <dimen name="marginTopDetailRecycler">7dp</dimen>
     <dimen name="DetailOverviewSpaceExtra">6sp</dimen>
     <dimen name="DetailOverviewTop">4dp</dimen>
+    <dimen name="SizeViewAge">24dp</dimen>
+    <dimen name="LikeSize">16dp</dimen>
+    <dimen name="marginForLike">13dp</dimen>
 </resources>

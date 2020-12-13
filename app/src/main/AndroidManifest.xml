@@ -14,7 +14,6 @@
         android:theme="@style/AppTheme2">
         <activity android:name="com.example.myapplication.activites.MainActivity"
             android:configChanges="orientation"
-            android:theme="@style/AppTheme2.NoActionBar"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

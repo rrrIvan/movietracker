@@ -20,4 +20,6 @@
     <color name="colorAccent">#222232</color>
     <color name="activityBackground">#673AB7</color>
     <color name="your_color">#3F51B5</color>
+    <color name="transparent">#00FFFFFF</color>
+
 </resources>

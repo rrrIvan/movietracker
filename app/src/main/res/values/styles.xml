@@ -1,18 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme33" parent="Theme.AppCompat.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="statusBarBackground">@android:color/transparent</item>
         <item name="materialCardViewStyle">@style/MyCardView</item>
         <item name="fontFamily">sans-serif</item>
-        <!--        <item name="android:windowDrawsSystemBarBackgrounds">false</item>-->
-        <!--        <item name="android:windowTranslucentStatus">true</item>-->
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
     </style>
 
     <style name="MyCardView" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="cardBackgroundColor">@color/colorPrimary</item>
+
+
     </style>
 
     <style name="DetailTextTitle">
@@ -21,6 +21,11 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">40sp</item>
         <item name="android:textAlignment">viewStart</item>
+
+    </style>
+
+    <style name="DetailTags">
+
 
     </style>
 
@@ -57,7 +62,7 @@
         <item name="android:textSize">12sp</item>
     </style>
 
-    <style name="DetailsPosterST" parent="">
+    <style name="ItemsPosterST" parent="">
         <item name="cornerSizeTopRight">75dp</item>
         <item name="cornerSizeTopLeft">75dp</item>
         <item name="cornerFamilyTopRight">rounded</item>
@@ -83,6 +88,12 @@
 
     </style>
 
+    <style name="ItemTitle" parent="ListsTitle">
+        <item name="android:textSize">14sp</item>
+
+
+    </style>
+
     <style name="ShapeAppearanceOverlay" parent="">
         <item name="cornerSize">4dp</item>
         <item name="cornerFamily">rounded</item>
@@ -101,7 +112,6 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
     <style name="AppTheme2" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@android:color/transparent</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -119,5 +129,11 @@
     <style name="TextAppearance.MyApp.Title.Expanded" parent="DetailTextTitle">
 
         <item name="android:lineSpacingExtra">20sp</item>
+    </style>
+
+    <style name="ItemTextReview" parent="DetailTextReview">
+        <item name="android:textSize">8sp</item>
+        <item name="android:layout_marginStart">6dp</item>
+
     </style>
 </resources>

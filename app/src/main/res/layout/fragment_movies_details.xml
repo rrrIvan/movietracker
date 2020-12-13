@@ -4,68 +4,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    android:fitsSystemWindows="true"
-    >
+    android:fitsSystemWindows="true">
 
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:fitsSystemWindows="true">
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
         <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/collapsing"
+            android:id="@+id/DetailCollapsing"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
-            app:contentScrim="@android:color/transparent"
-            app:title="Meassage"
-            app:maxLines="2"
-            app:expandedTitleTextAppearance="@style/TextAppearance.MyApp.Title.Expanded"
             app:collapsedTitleTextAppearance="@style/TextAppearance.MyApp.Title.Collapsed"
+            app:contentScrim="@android:color/transparent"
             app:expandedTitleMarginBottom="20dp"
             app:expandedTitleMarginStart="16dp"
+            app:expandedTitleTextAppearance="@style/TextAppearance.MyApp.Title.Expanded"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:maxLines="2"
+            tools:title = "Message in two lines"
             >
-
-            <androidx.appcompat.widget.AppCompatImageView
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
-                android:scaleType="centerCrop"
+                android:layout_height="match_parent">
 
-                android:src="@drawable/orig"/>
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
-                android:scaleType="centerCrop"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/DetailPoster"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintDimensionRatio="@string/DetailsRationPoster"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/appCompatImageView"
+                    tools:src="@drawable/orig" />
 
-                android:src="@drawable/gradient_shape"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/appCompatImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/gradient_bc_poster" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/AppTheme.PopupOverlay" >
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/DetailLike"
                     style="@style/DetailLike"
                     app:srcCompat="@drawable/like" />
             </androidx.appcompat.widget.Toolbar>
-
-
         </com.google.android.material.appbar.CollapsingToolbarLayout>
-
     </com.google.android.material.appbar.AppBarLayout>
 
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        >
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -92,19 +97,19 @@
                 android:layout_height="24dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/age"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/guideline2" />
+                app:layout_constraintEnd_toEndOf="@+id/guideline2"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/DetailAge"
+                style="@style/DetailTextAge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="13+"
-                style="@style/DetailTextAge"
                 app:layout_constraintBottom_toBottomOf="@+id/viewAge"
                 app:layout_constraintEnd_toEndOf="@+id/viewAge"
                 app:layout_constraintStart_toStartOf="@+id/viewAge"
-                app:layout_constraintTop_toTopOf="@+id/viewAge" />
+                app:layout_constraintTop_toTopOf="@+id/viewAge"
+                tools:text="13+" />
 
 
             <com.example.myapplication.custom_raiting_bar.RatingBarSvg
@@ -112,14 +117,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:isIndicator="true"
                 android:numStars="5"
                 android:progressBackgroundTint="@color/cl_grey"
-                android:isIndicator="true"
-                android:stepSize="1"
                 android:progressDrawable="@drawable/ratingbar_svg_selector"
                 android:progressTint="@color/cl_red"
                 android:rating="0"
                 android:secondaryProgressTint="@color/cl_grey"
+                android:stepSize="1"
                 app:drawableHeight="16dp"
                 app:drawableWidth="16dp"
                 app:innerPadding="2dp"
@@ -156,16 +161,15 @@
 
             <TextView
                 android:id="@+id/DetailOverview"
+                style="@style/DetailTextOverview"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/DetailOverviewTop"
-                style="@style/DetailTextOverview"
                 app:layout_constraintEnd_toStartOf="@+id/guideline2"
                 app:layout_constraintStart_toStartOf="@+id/guideline5"
                 app:layout_constraintTop_toBottomOf="@+id/DetailStoryline"
 
-                tools:text="After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe."
-                />
+                tools:text="After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe." />
 
             <TextView
                 android:id="@+id/textView7"
@@ -194,8 +198,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_end="16dp"
-                />
+                app:layout_constraintGuide_end="16dp" />
 
 
             <androidx.constraintlayout.widget.Guideline

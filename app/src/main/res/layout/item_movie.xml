@@ -1,37 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <com.google.android.material.card.MaterialCardView
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/material_card"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:checkable="true"
-        android:clickable="true"
-        android:focusable="true"
-        android:theme="@style/MyCardView"
-        app:cardCornerRadius="8dp"
-
-        app:cardElevation="0dp"
-        app:strokeColor="@color/border_color"
-        app:strokeWidth="1dp">
+    android:id="@+id/material_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:checkable="true"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/colorAccent"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/border_color"
+    app:strokeWidth="1dp"
+    app:theme="@style/MyCardView">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/gradient_bc">
-
+        >
 
         <ImageView
             android:id="@+id/ListsPoster"
             android:layout_width="0dp"
-
             android:layout_height="0dp"
             android:scaleType="centerCrop"
-            app:layout_constraintDimensionRatio="166:248"
+            app:layout_constraintDimensionRatio="@string/ListPosterRatio"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -52,9 +48,9 @@
 
         <View
             android:id="@+id/viewAge"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="@dimen/SizeViewAge"
+            android:layout_height="@dimen/SizeViewAge"
+            android:layout_marginTop="@dimen/margin_8dp"
             android:background="@drawable/age"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="parent" />
@@ -64,8 +60,7 @@
             android:id="@+id/ListsAgeLimit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/cl_white"
-            android:textSize="12sp"
+            style="@style/DetailTextAge"
             app:layout_constraintBottom_toBottomOf="@+id/viewAge"
             app:layout_constraintEnd_toEndOf="@+id/viewAge"
             app:layout_constraintStart_toStartOf="@+id/viewAge"
@@ -78,6 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:isIndicator="true"
             android:numStars="5"
             android:progressBackgroundTint="@color/cl_grey"
             android:progressDrawable="@drawable/ratingbar_svg_selector"
@@ -88,19 +84,15 @@
             app:drawableHeight="8dp"
             app:drawableWidth="8dp"
             app:innerPadding="2dp"
-            android:isIndicator="true"
             app:layout_constraintBottom_toBottomOf="@+id/ListsPoster"
-
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="@+id/guideline" />
 
         <TextView
             android:id="@+id/ListsReviews"
-            style="@style/DetailTextReview"
+            style="@style/ItemTextReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:textSize="8sp"
             app:layout_constraintBottom_toBottomOf="@+id/ListsStars"
             app:layout_constraintStart_toEndOf="@+id/ListsStars"
             tools:text="@string/text2" />
@@ -139,13 +131,13 @@
 
         <ImageView
             android:id="@+id/ListsLike"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:layout_marginTop="13dp"
+            android:layout_width="@dimen/LikeSize"
+            android:layout_height="@dimen/LikeSize"
+            android:layout_marginTop="@dimen/marginForLike"
+            android:contentDescription="@string/like"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/like"
-            android:contentDescription="@string/like" />
+            tools:src="@drawable/like" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
@@ -159,7 +151,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="6dp" />
+            app:layout_constraintGuide_end="8dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+</com.google.android.material.card.MaterialCardView>

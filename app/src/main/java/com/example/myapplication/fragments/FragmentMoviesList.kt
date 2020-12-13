@@ -29,11 +29,13 @@ class FragmentMoviesList : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        context?.setTheme(R.style.AppTheme2)
         return inflater.inflate(R.layout.fragment_movies_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as MainActivity?)?.updateStatusBarColor(R.color.colorPrimary)
         (activity as MainActivity?)?.setSupportActionBar(view.findViewById(R.id.toolbar))
         val lManager = GridLayoutManager(context, (orientation ?: 1) * 2)
         recycler = view.findViewById<RecyclerView>(R.id.rv_films)
@@ -59,7 +61,7 @@ class FragmentMoviesList : Fragment() {
         activity?.apply {
             supportFragmentManager.beginTransaction()
                 .apply {
-                    add(R.id.fragments_container, FragmentMoviesDetails.newInstance(movie))
+                    replace(R.id.fragments_container, FragmentMoviesDetails.newInstance(movie))
                     addToBackStack(null)
                     commit()
                 }
