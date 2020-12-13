@@ -11,7 +11,7 @@
     app:cardBackgroundColor="@color/colorAccent"
     app:cardCornerRadius="8dp"
     app:cardElevation="0dp"
-    app:strokeColor="@color/border_color"
+    app:strokeColor="@color/borderColor"
     app:strokeWidth="1dp"
     app:theme="@style/MyCardView">
 
@@ -25,7 +25,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="centerCrop"
-            app:layout_constraintDimensionRatio="@string/ListPosterRatio"
+            app:layout_constraintDimensionRatio="@string/listPosterRatio"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -45,8 +45,8 @@
 
         <View
             android:id="@+id/viewAge"
-            android:layout_width="@dimen/SizeViewAge"
-            android:layout_height="@dimen/SizeViewAge"
+            android:layout_width="@dimen/sizeViewAge"
+            android:layout_height="@dimen/sizeViewAge"
             android:layout_marginTop="@dimen/margin_8dp"
             android:background="@drawable/age"
             app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -70,11 +70,11 @@
             android:layout_marginBottom="16dp"
             android:isIndicator="true"
             android:numStars="5"
-            android:progressBackgroundTint="@color/cl_grey"
+            android:progressBackgroundTint="@color/clGrey"
             android:progressDrawable="@drawable/ratingbar_svg_selector"
-            android:progressTint="@color/cl_red"
+            android:progressTint="@color/clRed"
             android:rating="0"
-            android:secondaryProgressTint="@color/cl_grey"
+            android:secondaryProgressTint="@color/clGrey"
             android:stepSize="1"
             app:drawableHeight="8dp"
             app:drawableWidth="8dp"
@@ -125,8 +125,8 @@
 
         <ImageView
             android:id="@+id/ListsLike"
-            android:layout_width="@dimen/LikeSize"
-            android:layout_height="@dimen/LikeSize"
+            android:layout_width="@dimen/likeSize"
+            android:layout_height="@dimen/likeSize"
             android:layout_marginTop="@dimen/marginForLike"
             android:contentDescription="@string/like"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"

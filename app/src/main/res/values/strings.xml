@@ -1,14 +1,12 @@
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="film_name">Avengers: End Game</string>
+    <string name="appName">My Application</string>
+    <string name="filmName">Avengers: End Game</string>
     <string name="text1">Action, Adventure, Fantasy</string>
     <string name="text2">125 Reviews</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="storyline">Storyline</string>
     <string name="like">Like</string>
-    <string name="DetailsRationPoster">375:298</string>
-    <string name="movies_list">Movies list</string>
+    <string name="detailsRationPoster">375:298</string>
+    <string name="moviesList">Movies list</string>
     <string name="cast">Cast</string>
-    <string name="ListPosterRatio">166:248</string>
+    <string name="listPosterRatio">166:248</string>
 </resources>

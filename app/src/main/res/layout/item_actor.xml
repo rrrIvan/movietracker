@@ -9,7 +9,7 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ActorPhoto"
-        android:layout_width="@dimen/actor_size"
+        android:layout_width="@dimen/actorSize"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
         app:layout_constraintDimensionRatio="1:1"
@@ -23,7 +23,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAlignment="viewStart"
-        android:textColor="@color/text_actors_white"
+        android:textColor="@color/textActorsWhite"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/ActorPhoto"

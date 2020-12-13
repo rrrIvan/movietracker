@@ -13,7 +13,7 @@
     </style>
 
     <style name="DetailTextTitle">
-        <item name="android:textColor">@color/cl_white</item>
+        <item name="android:textColor">@color/clWhite</item>
         <item name="android:fontFamily">@font/roboto_black</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">40sp</item>
@@ -23,21 +23,21 @@
     <style name="DetailTags"></style>
 
     <style name="DetailTextOverview">
-        <item name="android:lineSpacingExtra">@dimen/DetailOverviewSpaceExtra</item>
+        <item name="android:lineSpacingExtra">@dimen/detailOverviewSpaceExtra</item>
         <item name="android:textAlignment">viewStart</item>
-        <item name="android:textColor">@color/transparent_white</item>
+        <item name="android:textColor">@color/transparentWhite</item>
         <item name="android:typeface">normal</item>
         <item name="android:fontFamily">@font/roboto_light</item>
     </style>
 
     <style name="DetailTextReview">
-        <item name="android:textColor">@color/cl_grey</item>
+        <item name="android:textColor">@color/clGrey</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="DetailTextAge">
-        <item name="android:textColor">@color/cl_white</item>
+        <item name="android:textColor">@color/clWhite</item>
         <item name="android:textSize">12sp</item>
     </style>
 
@@ -52,7 +52,7 @@
     </style>
 
     <style name="DetailTextTags">
-        <item name="android:textColor">@color/cl_red</item>
+        <item name="android:textColor">@color/clRed</item>
         <item name="android:textSize">12sp</item>
     </style>
 
@@ -67,13 +67,13 @@
     </style>
 
     <style name="ListsTags">
-        <item name="android:textColor">@color/cl_red</item>
+        <item name="android:textColor">@color/clRed</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textSize">8sp</item>
     </style>
 
     <style name="ListsTitle">
-        <item name="android:textColor">@color/cl_white</item>
+        <item name="android:textColor">@color/clWhite</item>
         <item name="android:textSize">40sp</item>
         <item name="android:singleLine">false</item>
         <item name="android:textStyle">bold</item>
@@ -93,7 +93,7 @@
     <style name="GlassRating">
         <item name="android:minHeight">10dp</item>
         <item name="android:minWidth">10dp</item>
-        <item name="colorControlNormal">@color/cl_red</item>
+        <item name="colorControlNormal">@color/clRed</item>
         <item name="colorControlActivated">@color/colorPrimary</item>
         <item name="android:progressDrawable">@drawable/rating_bar_bg</item>
     </style>

@@ -7,16 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="cl_grey">#6D6D80</color>
-    <color name="cl_red">#FF3466</color>
-    <color name="cl_white">#FFECECEC</color>
-    <color name="transparent_white">#BFECECEC</color>
-    <color name="border_color">#636375</color>
-    <color name="text_actors_white">#D8D8D8</color>
+    <color name="clGrey">#6D6D80</color>
+    <color name="clRed">#FF3466</color>
+    <color name="clWhite">#FFECECEC</color>
+    <color name="transparentWhite">#BFECECEC</color>
+    <color name="borderColor">#636375</color>
+    <color name="textActorsWhite">#D8D8D8</color>
     <color name="colorPrimary">#FF191926</color>
     <color name="colorPrimaryDark">#FFC107</color>
     <color name="colorAccent">#222232</color>
     <color name="activityBackground">#673AB7</color>
-    <color name="your_color">#3F51B5</color>
     <color name="transparent">#00FFFFFF</color>
 </resources>
