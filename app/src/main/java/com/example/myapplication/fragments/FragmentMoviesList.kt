@@ -38,7 +38,6 @@ class FragmentMoviesList : Fragment() {
         (activity as MainActivity?)?.apply {
             updateStatusBarColor(R.color.colorPrimary)
             setSupportActionBar(view.findViewById(R.id.ListToolbar)).apply {
-
             }
         }
         val lManager = GridLayoutManager(context, (orientation ?: 1) * 2)

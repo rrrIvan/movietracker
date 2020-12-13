@@ -13,13 +13,10 @@
     <color name="transparent_white">#BFECECEC</color>
     <color name="border_color">#636375</color>
     <color name="text_actors_white">#D8D8D8</color>
-
-
     <color name="colorPrimary">#FF191926</color>
     <color name="colorPrimaryDark">#FFC107</color>
     <color name="colorAccent">#222232</color>
     <color name="activityBackground">#673AB7</color>
     <color name="your_color">#3F51B5</color>
     <color name="transparent">#00FFFFFF</color>
-
 </resources>

@@ -89,7 +89,6 @@ class FragmentMoviesDetails : Fragment() {
                 setHomeButtonEnabled(true)
                 elevation = 0.0f
             }
-
         }
 
         val lManager = LinearLayoutManager(context)

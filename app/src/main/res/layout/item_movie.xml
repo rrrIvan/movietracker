@@ -15,12 +15,10 @@
     app:strokeWidth="1dp"
     app:theme="@style/MyCardView">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        >
+        android:layout_marginBottom="8dp">
 
         <ImageView
             android:id="@+id/ListsPoster"
@@ -31,7 +29,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/movie" />
+            tools:src="@drawable/movie"/>
 
         <ImageView
             android:layout_width="0dp"
@@ -40,11 +38,10 @@
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="@+id/ListsPoster"
             app:layout_constraintEnd_toEndOf="@+id/ListsPoster"
-
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/ListsPoster"
             app:layout_constraintTop_toTopOf="@+id/ListsPoster"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"/>
 
         <View
             android:id="@+id/viewAge"
@@ -53,20 +50,18 @@
             android:layout_marginTop="@dimen/margin_8dp"
             android:background="@drawable/age"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/ListsAgeLimit"
+            style="@style/DetailTextAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/DetailTextAge"
             app:layout_constraintBottom_toBottomOf="@+id/viewAge"
             app:layout_constraintEnd_toEndOf="@+id/viewAge"
             app:layout_constraintStart_toStartOf="@+id/viewAge"
             app:layout_constraintTop_toTopOf="@+id/viewAge"
-            tools:text="13+" />
-
+            tools:text="13+"/>
 
         <com.example.myapplication.custom_raiting_bar.RatingBarSvg
             android:id="@+id/ListsStars"
@@ -86,7 +81,7 @@
             app:innerPadding="2dp"
             app:layout_constraintBottom_toBottomOf="@+id/ListsPoster"
             app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="@+id/guideline" />
+            app:layout_constraintStart_toStartOf="@+id/guideline"/>
 
         <TextView
             android:id="@+id/ListsReviews"
@@ -95,7 +90,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/ListsStars"
             app:layout_constraintStart_toEndOf="@+id/ListsStars"
-            tools:text="@string/text2" />
+            tools:text="@string/text2"/>
 
         <TextView
             android:id="@+id/ListsTags"
@@ -105,7 +100,7 @@
             android:layout_marginBottom="@dimen/margin_8dp"
             app:layout_constraintBottom_toTopOf="@+id/ListsStars"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            tools:text="@string/text1" />
+            tools:text="@string/text1"/>
 
         <TextView
             android:id="@+id/ListsTitle"
@@ -117,7 +112,7 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/ListsPoster"
-            tools:text="Avengers: End Game" />
+            tools:text="Avengers: End Game"/>
 
         <TextView
             android:id="@+id/ListsDuration"
@@ -126,8 +121,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/ListsTitle"
-            tools:text="137 min" />
-
+            tools:text="137 min"/>
 
         <ImageView
             android:id="@+id/ListsLike"
@@ -137,21 +131,20 @@
             android:contentDescription="@string/like"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/like" />
+            tools:src="@drawable/like"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="8dp" />
+            app:layout_constraintGuide_begin="8dp"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="8dp" />
-
+            app:layout_constraintGuide_end="8dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
