@@ -1,8 +1,8 @@
-package com.example.myapplication
+package com.example.movietracker
 
 import android.app.Application
-import com.example.myapplication.data.Movie
-import com.example.myapplication.local.getRepository
+import com.example.movietracker.data.Movie
+import com.example.movietracker.local.getRepository
 import timber.log.Timber
 
 class ExampleApp : Application() {

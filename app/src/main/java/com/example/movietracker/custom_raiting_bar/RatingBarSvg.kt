@@ -1,4 +1,4 @@
-package com.example.myapplication.custom_raiting_bar
+package com.example.movietracker.custom_raiting_bar
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -22,7 +22,7 @@ import androidx.core.view.marginBottom
 import androidx.core.view.marginEnd
 import androidx.core.view.marginStart
 import androidx.core.view.marginTop
-import com.example.myapplication.R
+import com.example.movietracker.R
 
 class RatingBarSvg @JvmOverloads constructor(
     context: Context,

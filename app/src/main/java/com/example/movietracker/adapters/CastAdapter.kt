@@ -1,4 +1,4 @@
-package com.example.myapplication.adapters
+package com.example.movietracker.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,9 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.request.RequestOptions
-import com.example.myapplication.R
-import com.example.myapplication.data.Actor
-import com.example.myapplication.utils.loadImage
+import com.example.movietracker.R
+import com.example.movietracker.data.Actor
+import com.example.movietracker.utils.loadImage
 
 class CastAdapter : RecyclerView.Adapter<CastAdapter.CastViewHolder>() {
 

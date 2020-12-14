@@ -1,4 +1,4 @@
-package com.example.myapplication.adapters
+package com.example.movietracker.adapters
 
 import android.graphics.Rect
 import android.view.View

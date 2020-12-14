@@ -1,4 +1,4 @@
-package com.example.myapplication.utils
+package com.example.movietracker.utils
 
 import android.content.Context
 import android.content.res.Resources
@@ -9,7 +9,7 @@ import androidx.core.view.updateLayoutParams
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
-import com.example.myapplication.R
+import com.example.movietracker.R
 
 fun loadImage(
     context: Context,
