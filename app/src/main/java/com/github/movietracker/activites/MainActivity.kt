@@ -1,4 +1,4 @@
-package com.example.movietracker.activites
+package com.github.movietracker.activites
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.movietracker.R
 import com.example.movietracker.databinding.ActivityMainBinding
-import com.example.movietracker.fragments.FragmentMoviesList
+import com.github.movietracker.fragments.FragmentMoviesList
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

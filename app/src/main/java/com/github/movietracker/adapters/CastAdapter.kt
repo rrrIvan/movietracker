@@ -1,4 +1,4 @@
-package com.example.movietracker.adapters
+package com.github.movietracker.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.request.RequestOptions
 import com.example.movietracker.R
-import com.example.movietracker.data.Actor
-import com.example.movietracker.utils.loadImage
+import com.github.movietracker.data.Actor
+import com.github.movietracker.utils.loadImage
 
 class CastAdapter : RecyclerView.Adapter<CastAdapter.CastViewHolder>() {
 
@@ -38,7 +38,7 @@ class CastAdapter : RecyclerView.Adapter<CastAdapter.CastViewHolder>() {
     }
 
     abstract class CastViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
-    private class DataViewHolder(itemView: View) : CastAdapter.CastViewHolder(itemView) {
+    private class DataViewHolder(itemView: View) : CastViewHolder(itemView) {
 
         private val photo: ImageView = itemView.findViewById(R.id.ActorPhoto)
         private val name: TextView = itemView.findViewById(R.id.ActorName)

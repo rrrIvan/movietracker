@@ -1,9 +1,9 @@
 package com.example.movietracker.local
 
 import android.content.Context
-import com.example.movietracker.data.Actor
-import com.example.movietracker.data.Genre
-import com.example.movietracker.data.Movie
+import com.github.movietracker.data.Actor
+import com.github.movietracker.data.Genre
+import com.github.movietracker.data.Movie
 import kotlin.random.Random
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

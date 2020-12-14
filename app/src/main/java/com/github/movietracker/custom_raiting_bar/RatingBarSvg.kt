@@ -1,4 +1,4 @@
-package com.example.movietracker.custom_raiting_bar
+package com.github.movietracker.custom_raiting_bar
 
 import android.annotation.SuppressLint
 import android.content.Context

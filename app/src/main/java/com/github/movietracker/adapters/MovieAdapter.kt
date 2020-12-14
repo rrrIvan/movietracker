@@ -1,4 +1,4 @@
-package com.example.movietracker.adapters
+package com.github.movietracker.adapters
 
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
@@ -10,8 +10,8 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movietracker.R
-import com.example.movietracker.data.Movie
-import com.example.movietracker.utils.loadImage
+import com.github.movietracker.data.Movie
+import com.github.movietracker.utils.loadImage
 
 class MovieAdapter(
     private val clickListener: OnRecyclerItemClicked

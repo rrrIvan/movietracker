@@ -1,7 +1,7 @@
-package com.example.movietracker
+package com.github.movietracker
 
 import android.app.Application
-import com.example.movietracker.data.Movie
+import com.github.movietracker.data.Movie
 import com.example.movietracker.local.getRepository
 import timber.log.Timber
 

@@ -1,4 +1,4 @@
-package com.example.movietracker.utils
+package com.github.movietracker.utils
 
 import android.content.Context
 import android.content.res.Resources

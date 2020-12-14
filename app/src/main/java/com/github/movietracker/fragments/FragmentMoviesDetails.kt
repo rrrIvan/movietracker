@@ -1,4 +1,4 @@
-package com.example.movietracker.fragments
+package com.github.movietracker.fragments
 
 import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
@@ -15,13 +15,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movietracker.R
-import com.example.movietracker.activites.MainActivity
-import com.example.movietracker.adapters.CastAdapter
-import com.example.movietracker.adapters.LinearItemDecoration
-import com.example.movietracker.custom_raiting_bar.RatingBarSvg
-import com.example.movietracker.data.Movie
-import com.example.movietracker.utils.loadImage
-import com.example.movietracker.utils.toPx
+import com.github.movietracker.activites.MainActivity
+import com.github.movietracker.adapters.CastAdapter
+import com.github.movietracker.adapters.LinearItemDecoration
+import com.github.movietracker.custom_raiting_bar.RatingBarSvg
+import com.github.movietracker.data.Movie
+import com.github.movietracker.utils.loadImage
+import com.github.movietracker.utils.toPx
 import com.google.android.material.appbar.CollapsingToolbarLayout
 
 class FragmentMoviesDetails : Fragment() {

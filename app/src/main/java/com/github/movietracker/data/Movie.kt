@@ -1,4 +1,4 @@
-package com.example.movietracker.data
+package com.github.movietracker.data
 
 import android.os.Parcel
 import android.os.Parcelable

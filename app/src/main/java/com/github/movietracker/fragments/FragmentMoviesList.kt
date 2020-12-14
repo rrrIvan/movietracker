@@ -1,4 +1,4 @@
-package com.example.movietracker.fragments
+package com.github.movietracker.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.movietracker.ExampleApp
+import com.github.movietracker.ExampleApp
 import com.example.movietracker.R
-import com.example.movietracker.activites.MainActivity
-import com.example.movietracker.adapters.GridDividerItemDecoration
-import com.example.movietracker.adapters.MovieAdapter
-import com.example.movietracker.adapters.OnRecyclerItemClicked
-import com.example.movietracker.data.Movie
+import com.github.movietracker.activites.MainActivity
+import com.github.movietracker.adapters.GridDividerItemDecoration
+import com.github.movietracker.adapters.MovieAdapter
+import com.github.movietracker.adapters.OnRecyclerItemClicked
+import com.github.movietracker.data.Movie
 
 class FragmentMoviesList : Fragment() {
     private var recycler: RecyclerView? = null
