@@ -24,7 +24,7 @@ import androidx.core.view.marginStart
 import androidx.core.view.marginTop
 import com.example.movietracker.R
 
-class RatingBarSvg @JvmOverloads constructor(
+class RaitingBatSvg @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.ratingBarStyle,

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.github.movietracker.activites.MainActivity">
+    tools:context="com.github.movietracker.activites.ActivityMain">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -33,11 +33,11 @@
                     app:srcCompat="@drawable/combined_shape"/>
 
                 <TextView
-                    style="@style/ListsTitle"
+                    style="@style/ItemMovieTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="@string/moviesList"
+                    android:text="@string/frmovieslists_title"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -49,7 +49,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
+        android:background="@color/color_primary"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.recyclerview.widget.RecyclerView

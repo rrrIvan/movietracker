@@ -4,7 +4,7 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-class GridDividerItemDecoration(
+class ItemDecorationGrid(
     private val spanCount: Int,
     private val spacing: Int,
     private val includeEdge: Boolean

@@ -15,10 +15,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movietracker.R
-import com.github.movietracker.activites.MainActivity
+import com.github.movietracker.activites.ActivityMain
 import com.github.movietracker.adapters.CastAdapter
-import com.github.movietracker.adapters.LinearItemDecoration
-import com.github.movietracker.custom_raiting_bar.RatingBarSvg
+import com.github.movietracker.adapters.ItemDecorationLinear
+import com.github.movietracker.custom_raiting_bar.RaitingBatSvg
 import com.github.movietracker.data.Movie
 import com.github.movietracker.utils.loadImage
 import com.github.movietracker.utils.toPx
@@ -29,7 +29,7 @@ class FragmentMoviesDetails : Fragment() {
     private lateinit var recycler: RecyclerView
     private lateinit var param1: Movie
     private lateinit var frBackdrop: ImageView
-    private lateinit var frRating: RatingBarSvg
+    private lateinit var frRating: RaitingBatSvg
     private lateinit var frIsLike: ImageView
     private lateinit var frCollapsing: CollapsingToolbarLayout
     private lateinit var frAgeLimit: TextView
@@ -50,14 +50,14 @@ class FragmentMoviesDetails : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        (activity as MainActivity?)?.updateStatusBarColor(R.color.transparent)
+        (activity as ActivityMain?)?.updateStatusBarColor(R.color.transparent)
 
         val view = inflater.inflate(R.layout.fragment_movies_details, container, false)
         frBackdrop = view.findViewById(R.id.DetailPoster)
         frRating = view.findViewById(R.id.DetailStars)
         frIsLike = view.findViewById(R.id.DetailLike)
         frCollapsing = view.findViewById(R.id.DetailCollapsing)
-        frAgeLimit = view.findViewById(R.id.DetailAge)
+        frAgeLimit = view.findViewById(R.id.DetailTextAge)
         frTags = view.findViewById(R.id.DetailTags)
         frReviews = view.findViewById(R.id.DetailReview)
         frOverview = view.findViewById(R.id.DetailOverview)
@@ -80,7 +80,7 @@ class FragmentMoviesDetails : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val toolbar = view.findViewById<Toolbar>(R.id.DetailsToolbar)
-        (activity as MainActivity?)?.apply {
+        (activity as ActivityMain?)?.apply {
             updateStatusBarColor(R.color.transparent)
             setSupportActionBar(toolbar)
             supportActionBar?.apply {
@@ -93,16 +93,16 @@ class FragmentMoviesDetails : Fragment() {
 
         val lManager = LinearLayoutManager(context)
         lManager.orientation = RecyclerView.HORIZONTAL
-        recycler = view.findViewById<RecyclerView>(R.id.rv_actors)
+        recycler = view.findViewById<RecyclerView>(R.id.DetailActors)
         recycler.apply {
             layoutManager = lManager
             adapter = CastAdapter()
-            addItemDecoration(LinearItemDecoration(2.toPx, 16.toPx))
+            addItemDecoration(ItemDecorationLinear(2.toPx, 16.toPx))
         }
 
         param1.apply {
             loadImage(view.context, backdrop, frBackdrop)
-            val like = if (is_like) R.drawable.like else R.drawable.no_like
+            val like = if (is_like) R.drawable.like_16dp else R.drawable.no_like_16dp
             val drawable: Drawable? = ContextCompat.getDrawable(view.context, like)
             frTags.text = genres.joinToString(separator = ", ")
             frIsLike.setImageDrawable(drawable)

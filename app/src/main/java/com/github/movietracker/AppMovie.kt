@@ -5,7 +5,7 @@ import com.github.movietracker.data.Movie
 import com.example.movietracker.local.getRepository
 import timber.log.Timber
 
-class ExampleApp : Application() {
+class AppMovie : Application() {
     companion object {
         lateinit var instanceOfMovies: List<Movie>
             private set

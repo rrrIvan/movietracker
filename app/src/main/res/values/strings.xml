@@ -1,12 +1,12 @@
 <resources>
-    <string name="appName">My Application</string>
-    <string name="filmName">Avengers: End Game</string>
-    <string name="text1">Action, Adventure, Fantasy</string>
-    <string name="text2">125 Reviews</string>
-    <string name="storyline">Storyline</string>
-    <string name="like">Like</string>
-    <string name="detailsRationPoster">375:298</string>
-    <string name="moviesList">Movies list</string>
-    <string name="cast">Cast</string>
-    <string name="listPosterRatio">166:248</string>
+    <string name="appname">Movie Tracker</string>
+    <string name="itemmovie_listtags_placeholder">Action, Adventure, Fantasy</string>
+    <string name="itemmovie_review_placeholder">125 Reviews</string>
+    <string name="frdetails_storyline_text">Storyline</string>
+    <string name="itemmovie_like_description">Like</string>
+    <string name="details_poster_ratio">375:298</string>
+    <string name="frmovieslists_title">Movies list</string>
+    <string name="details_cast_text">Cast</string>
+    <string name="itemmovie_poster_ratio">166:248</string>
+    <string name="ItemActorActorNameToolsText">Text Viewkjh jkhb kjhbk jhbk hbk jhbk jhbk jhbk jbh jk</string>
 </resources>

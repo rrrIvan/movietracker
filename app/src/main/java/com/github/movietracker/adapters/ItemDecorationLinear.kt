@@ -4,7 +4,7 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-class LinearItemDecoration(
+class ItemDecorationLinear(
     private val paddingBetween: Int,
     private val paddingEdge: Int
 ) : RecyclerView.ItemDecoration() {

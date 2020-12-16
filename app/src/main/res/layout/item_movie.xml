@@ -2,18 +2,16 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/material_card"
+    android:id="@+id/ItemMovieCard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:checkable="true"
-    android:clickable="true"
-    android:focusable="true"
-    app:cardBackgroundColor="@color/colorAccent"
+    style="@style/ItemMovieCard"
+    app:cardBackgroundColor="@color/color_accent"
     app:cardCornerRadius="8dp"
     app:cardElevation="0dp"
-    app:strokeColor="@color/borderColor"
+    app:strokeColor="@color/cardview_border"
     app:strokeWidth="1dp"
-    app:theme="@style/MyCardView">
+    app:theme="@style/ListCardView">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -21,11 +19,11 @@
         android:layout_marginBottom="8dp">
 
         <ImageView
-            android:id="@+id/ListsPoster"
+            android:id="@+id/ItemMoviePoster"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="centerCrop"
-            app:layout_constraintDimensionRatio="@string/listPosterRatio"
+            app:layout_constraintDimensionRatio="@string/itemmovie_poster_ratio"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -34,104 +32,104 @@
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@drawable/mask__1_"
+            android:background="@drawable/gradient_mask"
             android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="@+id/ListsPoster"
-            app:layout_constraintEnd_toEndOf="@+id/ListsPoster"
+            app:layout_constraintBottom_toBottomOf="@+id/ItemMoviePoster"
+            app:layout_constraintEnd_toEndOf="@+id/ItemMoviePoster"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/ListsPoster"
-            app:layout_constraintTop_toTopOf="@+id/ListsPoster"
+            app:layout_constraintStart_toStartOf="@+id/ItemMoviePoster"
+            app:layout_constraintTop_toTopOf="@+id/ItemMoviePoster"
             app:layout_constraintVertical_bias="0.0"/>
 
         <View
-            android:id="@+id/viewAge"
-            android:layout_width="@dimen/sizeViewAge"
-            android:layout_height="@dimen/sizeViewAge"
-            android:layout_marginTop="@dimen/margin_8dp"
-            android:background="@drawable/age"
+            android:id="@+id/ItemMovieViewAge"
+            android:layout_width="@dimen/view_age_size"
+            android:layout_height="@dimen/view_age_size"
+            android:layout_marginTop="@dimen/all_margin_8dp"
+            android:background="@drawable/age_backview"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
-            android:id="@+id/ListsAgeLimit"
+            android:id="@+id/ItemMovieAgeLimit"
             style="@style/DetailTextAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/viewAge"
-            app:layout_constraintEnd_toEndOf="@+id/viewAge"
-            app:layout_constraintStart_toStartOf="@+id/viewAge"
-            app:layout_constraintTop_toTopOf="@+id/viewAge"
+            app:layout_constraintBottom_toBottomOf="@+id/ItemMovieViewAge"
+            app:layout_constraintEnd_toEndOf="@+id/ItemMovieViewAge"
+            app:layout_constraintStart_toStartOf="@+id/ItemMovieViewAge"
+            app:layout_constraintTop_toTopOf="@+id/ItemMovieViewAge"
             tools:text="13+"/>
 
-        <com.github.movietracker.custom_raiting_bar.RatingBarSvg
-            android:id="@+id/ListsStars"
+        <com.github.movietracker.custom_raiting_bar.RaitingBatSvg
+            android:id="@+id/ItemMovieStars"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:isIndicator="true"
             android:numStars="5"
-            android:progressBackgroundTint="@color/clGrey"
+            android:progressBackgroundTint="@color/grey"
             android:progressDrawable="@drawable/ratingbar_svg_selector"
-            android:progressTint="@color/clRed"
+            android:progressTint="@color/red"
             android:rating="0"
-            android:secondaryProgressTint="@color/clGrey"
+            android:secondaryProgressTint="@color/grey"
             android:stepSize="1"
             app:drawableHeight="8dp"
             app:drawableWidth="8dp"
             app:innerPadding="2dp"
-            app:layout_constraintBottom_toBottomOf="@+id/ListsPoster"
+            app:layout_constraintBottom_toBottomOf="@+id/ItemMoviePoster"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="@+id/guideline"/>
 
         <TextView
-            android:id="@+id/ListsReviews"
+            android:id="@+id/ItemMovieReviews"
             style="@style/ItemTextReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/ListsStars"
-            app:layout_constraintStart_toEndOf="@+id/ListsStars"
-            tools:text="@string/text2"/>
+            app:layout_constraintBottom_toBottomOf="@+id/ItemMovieStars"
+            app:layout_constraintStart_toEndOf="@+id/ItemMovieStars"
+            tools:text="@string/itemmovie_review_placeholder"/>
 
         <TextView
-            android:id="@+id/ListsTags"
-            style="@style/ListsTags"
+            android:id="@+id/ItemMovieTags"
+            style="@style/ItemMovieTags"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_8dp"
-            app:layout_constraintBottom_toTopOf="@+id/ListsStars"
+            android:layout_marginBottom="@dimen/all_margin_8dp"
+            app:layout_constraintBottom_toTopOf="@+id/ItemMovieStars"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            tools:text="@string/text1"/>
+            tools:text="@string/itemmovie_listtags_placeholder"/>
 
         <TextView
-            android:id="@+id/ListsTitle"
-            style="@style/ListsTitle"
+            android:id="@+id/ItemMovieTitle"
+            style="@style/ItemMovieTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:textSize="14sp"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/ListsPoster"
+            app:layout_constraintTop_toBottomOf="@+id/ItemMoviePoster"
             tools:text="Avengers: End Game"/>
 
         <TextView
-            android:id="@+id/ListsDuration"
-            style="@style/ListsReviews"
+            android:id="@+id/ItemMovieDuration"
+            style="@style/ItemMovieDuration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/ListsTitle"
+            app:layout_constraintTop_toBottomOf="@+id/ItemMovieTitle"
             tools:text="137 min"/>
 
         <ImageView
-            android:id="@+id/ListsLike"
-            android:layout_width="@dimen/likeSize"
-            android:layout_height="@dimen/likeSize"
-            android:layout_marginTop="@dimen/marginForLike"
-            android:contentDescription="@string/like"
+            android:id="@+id/ItemMovieLike"
+            android:layout_width="@dimen/img_like_size"
+            android:layout_height="@dimen/img_like_size"
+            android:layout_marginTop="@dimen/img_like_margin_all"
+            android:contentDescription="@string/itemmovie_like_description"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/like"/>
+            tools:src="@drawable/like_16dp"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"

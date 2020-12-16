@@ -11,7 +11,7 @@ import com.example.movietracker.R
 import com.example.movietracker.databinding.ActivityMainBinding
 import com.github.movietracker.fragments.FragmentMoviesList
 
-class MainActivity : AppCompatActivity() {
+class ActivityMain : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var view: View
     override fun onCreate(savedInstanceState: Bundle?) {

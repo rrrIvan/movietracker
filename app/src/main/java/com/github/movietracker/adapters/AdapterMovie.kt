@@ -43,19 +43,19 @@ class MovieAdapter(
     abstract class MoviesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     private class DataViewHolder(itemView: View) : MoviesViewHolder(itemView) {
 
-        private val poster: ImageView = itemView.findViewById(R.id.ListsPoster)
-        private val rating: RatingBar = itemView.findViewById(R.id.ListsStars)
-        private val isLike: ImageView = itemView.findViewById(R.id.ListsLike)
-        private val title: TextView = itemView.findViewById(R.id.ListsTitle)
-        private val ageLimit: TextView = itemView.findViewById(R.id.ListsAgeLimit)
-        private val duration: TextView = itemView.findViewById(R.id.ListsDuration)
-        private val tags: TextView = itemView.findViewById(R.id.ListsTags)
-        private val reviews: TextView = itemView.findViewById(R.id.ListsReviews)
+        private val poster: ImageView = itemView.findViewById(R.id.ItemMoviePoster)
+        private val rating: RatingBar = itemView.findViewById(R.id.ItemMovieStars)
+        private val isLike: ImageView = itemView.findViewById(R.id.ItemMovieLike)
+        private val title: TextView = itemView.findViewById(R.id.ItemMovieTitle)
+        private val ageLimit: TextView = itemView.findViewById(R.id.ItemMovieAgeLimit)
+        private val duration: TextView = itemView.findViewById(R.id.ItemMovieDuration)
+        private val tags: TextView = itemView.findViewById(R.id.ItemMovieTags)
+        private val reviews: TextView = itemView.findViewById(R.id.ItemMovieReviews)
 
         fun onBind(movie: Movie) {
             loadImage(context, movie.poster, poster)
             tags.text = movie.genres.joinToString(separator = ", ")
-            val like = if (movie.is_like) R.drawable.like else R.drawable.no_like
+            val like = if (movie.is_like) R.drawable.like_16dp else R.drawable.no_like_16dp
             val drawable: Drawable? = ContextCompat.getDrawable(context, like)
             isLike.setImageDrawable(drawable)
             reviews.text = movie.votes.toString().plus(" REVIEWS")

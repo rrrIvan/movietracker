@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="actorSize">150dp</dimen>
+    <dimen name="actor_photo_size">150dp</dimen>
 </resources>

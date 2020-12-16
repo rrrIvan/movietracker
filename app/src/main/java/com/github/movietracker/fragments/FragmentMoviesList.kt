@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.github.movietracker.ExampleApp
+import com.github.movietracker.AppMovie
 import com.example.movietracker.R
-import com.github.movietracker.activites.MainActivity
-import com.github.movietracker.adapters.GridDividerItemDecoration
+import com.github.movietracker.activites.ActivityMain
+import com.github.movietracker.adapters.ItemDecorationGrid
 import com.github.movietracker.adapters.MovieAdapter
 import com.github.movietracker.adapters.OnRecyclerItemClicked
 import com.github.movietracker.data.Movie
@@ -35,8 +35,8 @@ class FragmentMoviesList : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as MainActivity?)?.apply {
-            updateStatusBarColor(R.color.colorPrimary)
+        (activity as ActivityMain?)?.apply {
+            updateStatusBarColor(R.color.color_primary)
             setSupportActionBar(view.findViewById(R.id.ListToolbar)).apply {
             }
         }
@@ -46,7 +46,7 @@ class FragmentMoviesList : Fragment() {
             layoutManager = lManager
             adapter = MovieAdapter(clickListener)
         }
-        recycler?.addItemDecoration(GridDividerItemDecoration((orientation ?: 1) * 2, 30, true))
+        recycler?.addItemDecoration(ItemDecorationGrid((orientation ?: 1) * 2, 30, true))
     }
 
     override fun onStart() {
@@ -56,7 +56,7 @@ class FragmentMoviesList : Fragment() {
 
     private fun updateData() {
         (recycler?.adapter as? MovieAdapter)?.apply {
-            bindMovies(ExampleApp.instanceOfMovies)
+            bindMovies(AppMovie.instanceOfMovies)
         }
     }
 
