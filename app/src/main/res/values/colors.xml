@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>>
-    <color name="black">#FF000000</color>
+    <color name="black">#000000</color>
     <color name="grey">#6D6D80</color>
     <color name="red">#FF3466</color>
+    <color name="shadow">#42000000</color>
     <color name="soft_white">#FFECECEC</color>
     <color name="transparent_white">#BFECECEC</color>
     <color name="cardview_border">#636375</color>
