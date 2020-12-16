@@ -104,11 +104,11 @@ internal fun parseMovies(
             overview = jsonMovie.overview,
             poster = jsonMovie.posterPicture,
             backdrop = jsonMovie.backdropPicture,
-            ratings = jsonMovie.ratings,
+            rating = jsonMovie.ratings,
             runtime = jsonMovie.runtime,
             votes = jsonMovie.votes,
             age = if (jsonMovie.adult) 16 else 13,
-            is_like = Random.nextBoolean(),
+            like = Random.nextBoolean(),
             genres = jsonMovie.genreIds.map {
                 genresMap[it] ?: throw IllegalArgumentException("Genre not found")
             },

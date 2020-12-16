@@ -11,7 +11,7 @@
         android:label=""
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme2.NoActionBar">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity android:name="com.github.movietracker.activites.ActivityMain"
             android:configChanges="orientation"
             >

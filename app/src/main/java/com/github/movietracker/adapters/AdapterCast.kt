@@ -9,16 +9,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.request.RequestOptions
 import com.example.movietracker.R
 import com.github.movietracker.data.Actor
-import com.github.movietracker.utils.loadImage
+import com.github.movietracker.extensions.loadImage
 
-class CastAdapter : RecyclerView.Adapter<CastAdapter.CastViewHolder>() {
+class CastAdapter : RecyclerView.Adapter<CastAdapter.DataViewHolder>() {
 
     private var cast = listOf<Actor>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): CastViewHolder {
+    ): DataViewHolder {
         return DataViewHolder(
             LayoutInflater.from(
                 parent.context
@@ -26,8 +26,8 @@ class CastAdapter : RecyclerView.Adapter<CastAdapter.CastViewHolder>() {
         )
     }
 
-    override fun onBindViewHolder(holder: CastViewHolder, position: Int) {
-        (holder as DataViewHolder).onBind(cast[position])
+    override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
+        holder.bind(cast[position])
     }
 
     override fun getItemCount(): Int = cast.size
@@ -37,13 +37,12 @@ class CastAdapter : RecyclerView.Adapter<CastAdapter.CastViewHolder>() {
         notifyDataSetChanged()
     }
 
-    abstract class CastViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
-    private class DataViewHolder(itemView: View) : CastViewHolder(itemView) {
+    class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private val photo: ImageView = itemView.findViewById(R.id.ActorPhoto)
         private val name: TextView = itemView.findViewById(R.id.ActorName)
 
-        fun onBind(actor: Actor) {
+        fun bind(actor: Actor) {
 
             loadImage(
                 context,

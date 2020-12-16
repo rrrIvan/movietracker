@@ -36,10 +36,8 @@
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="@+id/ItemMoviePoster"
             app:layout_constraintEnd_toEndOf="@+id/ItemMoviePoster"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/ItemMoviePoster"
-            app:layout_constraintTop_toTopOf="@+id/ItemMoviePoster"
-            app:layout_constraintVertical_bias="0.0"/>
+            app:layout_constraintTop_toTopOf="@+id/ItemMoviePoster"/>
 
         <View
             android:id="@+id/ItemMovieViewAge"
@@ -69,7 +67,7 @@
             android:isIndicator="true"
             android:numStars="5"
             android:progressBackgroundTint="@color/grey"
-            android:progressDrawable="@drawable/ratingbar_svg_selector"
+            android:progressDrawable="@drawable/rating_bar_bg"
             android:progressTint="@color/red"
             android:rating="0"
             android:secondaryProgressTint="@color/grey"
@@ -93,10 +91,11 @@
         <TextView
             android:id="@+id/ItemMovieTags"
             style="@style/ItemMovieTags"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/all_margin_8dp"
             app:layout_constraintBottom_toTopOf="@+id/ItemMovieStars"
+            app:layout_constraintEnd_toEndOf="@id/guideline3"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             tools:text="@string/itemmovie_listtags_placeholder"/>
 

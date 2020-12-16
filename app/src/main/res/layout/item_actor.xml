@@ -25,5 +25,5 @@
         app:layout_constraintEnd_toEndOf="@+id/ActorPhoto"
         app:layout_constraintStart_toStartOf="@+id/ActorPhoto"
         app:layout_constraintTop_toBottomOf="@+id/ActorPhoto"
-        tools:text="@string/ItemActorActorNameToolsText" />
+        tools:text="@string/itemactor_actor_name" />
 </androidx.constraintlayout.widget.ConstraintLayout>

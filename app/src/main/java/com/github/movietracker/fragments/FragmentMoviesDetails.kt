@@ -4,44 +4,33 @@ import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movietracker.R
+import com.example.movietracker.databinding.FragmentMoviesDetailsBinding
 import com.github.movietracker.activites.ActivityMain
 import com.github.movietracker.adapters.CastAdapter
 import com.github.movietracker.adapters.ItemDecorationLinear
-import com.github.movietracker.custom_raiting_bar.RaitingBatSvg
 import com.github.movietracker.data.Movie
-import com.github.movietracker.utils.loadImage
-import com.github.movietracker.utils.toPx
-import com.google.android.material.appbar.CollapsingToolbarLayout
+import com.github.movietracker.extensions.Constants
+import com.github.movietracker.extensions.loadImage
+import com.github.movietracker.extensions.toPx
 
 class FragmentMoviesDetails : Fragment() {
-
-    private lateinit var recycler: RecyclerView
-    private lateinit var param1: Movie
-    private lateinit var frBackdrop: ImageView
-    private lateinit var frRating: RaitingBatSvg
-    private lateinit var frIsLike: ImageView
-    private lateinit var frCollapsing: CollapsingToolbarLayout
-    private lateinit var frAgeLimit: TextView
-    private lateinit var frTags: TextView
-    private lateinit var frReviews: TextView
-    private lateinit var frOverview: TextView
-    private lateinit var back: ImageView
+    private var _binding: FragmentMoviesDetailsBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var movie: Movie
+    private lateinit var castAdapter: CastAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getParcelable(Movie::class.java.name) ?: Movie()
+            movie = it.getParcelable(Constants.MOVIE_KEY) ?: Movie()
         }
     }
 
@@ -49,38 +38,17 @@ class FragmentMoviesDetails : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        (activity as ActivityMain?)?.updateStatusBarColor(R.color.transparent)
-
-        val view = inflater.inflate(R.layout.fragment_movies_details, container, false)
-        frBackdrop = view.findViewById(R.id.DetailPoster)
-        frRating = view.findViewById(R.id.DetailStars)
-        frIsLike = view.findViewById(R.id.DetailLike)
-        frCollapsing = view.findViewById(R.id.DetailCollapsing)
-        frAgeLimit = view.findViewById(R.id.DetailTextAge)
-        frTags = view.findViewById(R.id.DetailTags)
-        frReviews = view.findViewById(R.id.DetailReview)
-        frOverview = view.findViewById(R.id.DetailOverview)
-        // back = view.findViewById(R.id.DetailBackButton)
-        return view
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
-
-        if (id == android.R.id.home) {
-            childFragmentManager.popBackStack()
-            return true
-        }
-
-        return super.onOptionsItemSelected(item)
+    ): View {
+        (activity as? ActivityMain)?.updateStatusBarColor(R.color.transparent)
+        _binding = FragmentMoviesDetailsBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     @SuppressLint("RestrictedApi")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val toolbar = view.findViewById<Toolbar>(R.id.DetailsToolbar)
-        (activity as ActivityMain?)?.apply {
+        (activity as? ActivityMain)?.apply {
             updateStatusBarColor(R.color.transparent)
             setSupportActionBar(toolbar)
             supportActionBar?.apply {
@@ -91,38 +59,42 @@ class FragmentMoviesDetails : Fragment() {
             }
         }
 
-        val lManager = LinearLayoutManager(context)
-        lManager.orientation = RecyclerView.HORIZONTAL
-        recycler = view.findViewById<RecyclerView>(R.id.DetailActors)
-        recycler.apply {
-            layoutManager = lManager
+        binding.DetailActors.apply {
+            layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
             adapter = CastAdapter()
             addItemDecoration(ItemDecorationLinear(2.toPx, 16.toPx))
         }
 
-        param1.apply {
-            loadImage(view.context, backdrop, frBackdrop)
-            val like = if (is_like) R.drawable.like_16dp else R.drawable.no_like_16dp
-            val drawable: Drawable? = ContextCompat.getDrawable(view.context, like)
-            frTags.text = genres.joinToString(separator = ", ")
-            frIsLike.setImageDrawable(drawable)
-            frReviews.text = votes.toString().plus(" REVIEWS")
-            frRating.rating = ratings / 2
-            frCollapsing.title = title
-            frAgeLimit.text = age.toString().plus("+")
-            frOverview.text = overview
+        movie.apply {
+            binding.apply {
+                loadImage(view.context, backdrop, DetailPoster)
+                val like = if (like) R.drawable.like_16dp else R.drawable.no_like_16dp
+                val drawable: Drawable? = ContextCompat.getDrawable(view.context, like)
+                DetailTags.text = genres.joinToString(separator = ", ") { it.name }
+                DetailLike.setImageDrawable(drawable)
+                DetailReview.text = votes.toString().plus(" REVIEWS")
+                DetailStars.rating = rating / 2
+                DetailCollapsing.title = title
+                DetailTextAge.text = age.toString().plus("+")
+                DetailOverview.text = overview
+                castAdapter = DetailActors.adapter as CastAdapter
+            }
         }
     }
 
     override fun onStart() {
         super.onStart()
-
         updateData()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
     private fun updateData() {
-        (recycler.adapter as? CastAdapter)?.apply {
-            bindCast(param1.actors)
+        castAdapter.apply {
+            bindCast(movie.actors)
         }
     }
 
@@ -131,7 +103,7 @@ class FragmentMoviesDetails : Fragment() {
         fun newInstance(param: Movie) =
             FragmentMoviesDetails().apply {
                 arguments = Bundle().apply {
-                    putParcelable(Movie::class.java.name, param)
+                    putParcelable(Constants.MOVIE_KEY, param)
                 }
             }
     }

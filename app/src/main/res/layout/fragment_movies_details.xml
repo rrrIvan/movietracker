@@ -89,9 +89,9 @@
 
             <View
                 android:id="@+id/ViewAge"
+                style="@style/DetailViewAge"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                style="@style/DetailViewAge"
                 app:layout_constraintEnd_toEndOf="@+id/guideline2"
                 app:layout_constraintTop_toTopOf="parent"/>
 
@@ -108,9 +108,9 @@
 
             <com.github.movietracker.custom_raiting_bar.RaitingBatSvg
                 android:id="@+id/DetailStars"
+                style="@style/DetailStars"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/DetailStars"
                 app:drawableHeight="16dp"
                 app:drawableWidth="16dp"
                 app:innerPadding="2dp"
@@ -131,9 +131,9 @@
 
             <TextView
                 android:id="@+id/DetailStoryline"
+                style="@style/DetailStoryline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/DetailStoryline"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/guideline5"
                 app:layout_constraintTop_toBottomOf="@+id/DetailReview"/>
@@ -150,9 +150,9 @@
 
             <TextView
                 android:id="@+id/DetailCast"
+                style="@style/DetailCast"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/DetailCast"
                 app:layout_constraintStart_toStartOf="@+id/guideline5"
                 app:layout_constraintTop_toBottomOf="@+id/DetailOverview"/>
 
@@ -160,8 +160,8 @@
                 android:id="@+id/DetailActors"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/rv_actors_margin_all"
-                android:layout_marginBottom="@dimen/rv_actors_margin_all"
+                android:layout_marginTop="@dimen/all_margin_8dp"
+                android:layout_marginBottom="@dimen/all_margin_8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/DetailCast"/>

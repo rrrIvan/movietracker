@@ -37,7 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="@string/frmovieslists_title"
+                    android:text="@string/itemmovie_title"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -46,18 +46,13 @@
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_films"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/color_primary"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_films"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
