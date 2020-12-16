@@ -106,7 +106,7 @@
                 app:layout_constraintTop_toTopOf="@+id/details_viewage"
                 tools:text="13+"/>
 
-            <com.github.movietracker.custom_raiting_bar.RaitingBatSvg
+            <com.github.movietracker.custom_raiting_bar.RaitingBarSvg
                 android:id="@+id/detail_stars"
                 style="@style/DetailStars"
                 android:layout_width="wrap_content"

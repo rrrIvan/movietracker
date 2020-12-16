@@ -1,5 +1,4 @@
 <resources>
-    <string name="appname">Movie Tracker</string>
     <string name="itemmovie_listtags_placeholder">Action, Adventure, Fantasy</string>
     <string name="itemmovie_review_placeholder">125 Reviews</string>
     <string name="details_storyline_text">Storyline</string>

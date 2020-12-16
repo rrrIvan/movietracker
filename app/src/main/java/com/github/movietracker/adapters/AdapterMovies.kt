@@ -2,16 +2,10 @@ package com.github.movietracker.adapters
 
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.RatingBar
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movietracker.R
-import com.example.movietracker.databinding.FragmentMoviesDetailsBinding
-import com.example.movietracker.databinding.FragmentMoviesListBinding
 import com.example.movietracker.databinding.ItemMovieBinding
 import com.github.movietracker.data.Movie
 import com.github.movietracker.extensions.loadImage
@@ -22,7 +16,7 @@ class MovieAdapter(
     private lateinit var _binding: ItemMovieBinding
     private var movies = listOf<Movie>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
-        _binding = ItemMovieBinding.inflate(LayoutInflater.from(parent.context),parent, false)
+        _binding = ItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return DataViewHolder(_binding)
     }
 
@@ -40,7 +34,9 @@ class MovieAdapter(
         notifyDataSetChanged()
     }
 
-    public class DataViewHolder(private val binding: ItemMovieBinding) : RecyclerView.ViewHolder(binding.root) {
+    public class DataViewHolder(private val binding: ItemMovieBinding) : RecyclerView.ViewHolder(
+        binding.root
+    ) {
 
         fun bind(movie: Movie) {
             binding.apply {
@@ -54,7 +50,6 @@ class MovieAdapter(
                 itemmovieTitle.text = movie.title
                 itemmovieAgelimit.text = movie.age.toString().plus("+")
                 itemmovieDuration.text = movie.runtime.toString().plus(" min")
-
             }
         }
     }

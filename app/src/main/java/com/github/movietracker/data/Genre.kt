@@ -1,6 +1,5 @@
 package com.github.movietracker.data
 
-import android.os.Parcel
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 

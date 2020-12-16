@@ -59,7 +59,7 @@
             app:layout_constraintTop_toTopOf="@+id/itemmovie_viewage"
             tools:text="13+"/>
 
-        <com.github.movietracker.custom_raiting_bar.RaitingBatSvg
+        <com.github.movietracker.custom_raiting_bar.RaitingBarSvg
             android:id="@+id/itemmovie_stars"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

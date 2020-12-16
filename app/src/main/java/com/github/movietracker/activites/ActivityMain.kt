@@ -8,8 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.movietracker.R
 import com.example.movietracker.databinding.ActivityMainBinding
-import com.github.movietracker.fragments.FragmentMoviesList
 import com.github.movietracker.extensions.Constants
+import com.github.movietracker.fragments.FragmentMoviesList
 
 class ActivityMain : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

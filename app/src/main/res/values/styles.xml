@@ -91,10 +91,6 @@
         <item name="android:layout_alignParentEnd">true</item>
     </style>
 
-    <style name="DetailTextTags">
-        <item name="android:textColor">@color/red</item>
-        <item name="android:textSize">12sp</item>
-    </style>
 
     <style name="ItemMovieCard">
         <item name="android:checkable">true</item>
@@ -127,12 +123,6 @@
         <item name="android:textSize">8sp</item>
     </style>
 
-    <style name="ItemsPosterST" parent="">
-        <item name="cornerSizeTopRight">75dp</item>
-        <item name="cornerSizeTopLeft">75dp</item>
-        <item name="cornerFamilyTopRight">rounded</item>
-    </style>
-
     <style name="ItemActorRoot" parent="">
         <item name="android:layout_marginStart">4dp</item>
         <item name="android:layout_marginEnd">4dp</item>
@@ -149,9 +139,6 @@
         <item name="cornerSize">4dp</item>
         <item name="cornerFamily">rounded</item>
     </style>
-
-
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 

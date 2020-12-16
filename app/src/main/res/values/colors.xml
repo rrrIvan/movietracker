@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
     <color name="grey">#6D6D80</color>
     <color name="red">#FF3466</color>
     <color name="soft_white">#FFECECEC</color>
@@ -9,7 +8,6 @@
     <color name="cardview_border">#636375</color>
     <color name="actor_name">#D8D8D8</color>
     <color name="color_primary">#FF191926</color>
-    <color name="color_primary_dark">#FFC107</color>
     <color name="color_accent">#222232</color>
     <color name="transparent">#00FFFFFF</color>
 </resources>

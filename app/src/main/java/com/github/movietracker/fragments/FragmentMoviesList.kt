@@ -78,5 +78,3 @@ class FragmentMoviesList : Fragment() {
         fun newInstance() = FragmentMoviesList()
     }
 }
-
-
