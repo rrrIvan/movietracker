@@ -8,21 +8,21 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.request.RequestOptions
 import com.example.movietracker.R
+import com.example.movietracker.databinding.ItemActorBinding
+import com.example.movietracker.databinding.ItemMovieBinding
 import com.github.movietracker.data.Actor
 import com.github.movietracker.extensions.loadImage
 
 class CastAdapter : RecyclerView.Adapter<CastAdapter.DataViewHolder>() {
-
     private var cast = listOf<Actor>()
-
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): DataViewHolder {
         return DataViewHolder(
-            LayoutInflater.from(
-                parent.context
-            ).inflate(R.layout.item_actor, parent, false)
+            ItemActorBinding.inflate(
+                LayoutInflater.from(parent.context), parent, false
+            )
         )
     }
 
@@ -31,28 +31,22 @@ class CastAdapter : RecyclerView.Adapter<CastAdapter.DataViewHolder>() {
     }
 
     override fun getItemCount(): Int = cast.size
-
     fun bindCast(newCast: List<Actor>) {
         cast = newCast
         notifyDataSetChanged()
     }
 
-    class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        private val photo: ImageView = itemView.findViewById(R.id.itemactor_photo)
-        private val name: TextView = itemView.findViewById(R.id.itemactor_name)
-
+    class DataViewHolder(private val binding: ItemActorBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(actor: Actor) {
-
-            loadImage(
+            binding.itemactorPhoto.loadImage(
                 context,
                 actor.picture,
-                photo,
                 RequestOptions()
                     .placeholder(R.drawable.ic_baseline_person_outline_24)
                     .fallback(R.drawable.ic_baseline_person_outline_24)
             )
-            name.text = actor.name
+            binding.itemactorName.text = actor.name
         }
     }
 }

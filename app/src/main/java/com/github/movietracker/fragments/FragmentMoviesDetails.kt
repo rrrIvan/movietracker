@@ -67,7 +67,7 @@ class FragmentMoviesDetails : Fragment() {
 
         movie.apply {
             binding.apply {
-                loadImage(view.context, backdrop, detailsPoster)
+                detailsPoster.loadImage(view.context, backdrop)
                 val like = if (like) R.drawable.like_16dp else R.drawable.no_like_16dp
                 val drawable: Drawable? = ContextCompat.getDrawable(view.context, like)
                 detailTags.text = genres.joinToString(separator = ", ") { it.name }
