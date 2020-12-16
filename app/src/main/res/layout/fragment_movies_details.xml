@@ -6,7 +6,7 @@
     android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/DetailAppbar"
+        android:id="@+id/details_appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
@@ -14,7 +14,7 @@
         app:elevation="0dp">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/DetailCollapsing"
+            android:id="@+id/details_collapsing"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
@@ -33,18 +33,18 @@
                 android:fitsSystemWindows="true">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/DetailPoster"
+                    android:id="@+id/details_poster"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:fitsSystemWindows="true"
                     android:scaleType="centerCrop"
                     app:layout_constraintDimensionRatio="@string/details_poster_ratio"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/appCompatImageView"
+                    app:layout_constraintTop_toTopOf="@+id/details_image"
                     tools:src="@drawable/orig"/>
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/appCompatImageView"
+                    android:id="@+id/details_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fitsSystemWindows="true"
@@ -53,14 +53,14 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/DetailsToolbar"
+                android:id="@+id/details_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/AppTheme.PopupOverlay">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/DetailLike"
+                    android:id="@+id/details_like"
                     style="@style/DetailLike"
                     app:srcCompat="@drawable/like_16dp"/>
             </androidx.appcompat.widget.Toolbar>
@@ -78,17 +78,17 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/DetailTags"
+                android:id="@+id/detail_tags"
                 style="@style/DetailTags"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toStartOf="@+id/ViewAge"
+                app:layout_constraintEnd_toStartOf="@+id/details_viewage"
                 app:layout_constraintStart_toStartOf="@+id/guideline5"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Action, Adventure, Fantasy"/>
 
             <View
-                android:id="@+id/ViewAge"
+                android:id="@+id/details_viewage"
                 style="@style/DetailViewAge"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
@@ -96,18 +96,18 @@
                 app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
-                android:id="@+id/DetailTextAge"
+                android:id="@+id/details_textage"
                 style="@style/DetailTextAge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/ViewAge"
-                app:layout_constraintEnd_toEndOf="@+id/ViewAge"
-                app:layout_constraintStart_toStartOf="@+id/ViewAge"
-                app:layout_constraintTop_toTopOf="@+id/ViewAge"
+                app:layout_constraintBottom_toBottomOf="@+id/details_viewage"
+                app:layout_constraintEnd_toEndOf="@+id/details_viewage"
+                app:layout_constraintStart_toStartOf="@+id/details_viewage"
+                app:layout_constraintTop_toTopOf="@+id/details_viewage"
                 tools:text="13+"/>
 
             <com.github.movietracker.custom_raiting_bar.RaitingBatSvg
-                android:id="@+id/DetailStars"
+                android:id="@+id/detail_stars"
                 style="@style/DetailStars"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,55 +116,54 @@
                 app:innerPadding="2dp"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="@+id/guideline5"
-                app:layout_constraintTop_toBottomOf="@+id/DetailTags"/>
+                app:layout_constraintTop_toBottomOf="@+id/detail_tags"/>
 
             <TextView
-                android:id="@+id/DetailReview"
+                android:id="@+id/detail_review"
                 style="@style/DetailTextReview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                app:layout_constraintBottom_toBottomOf="@+id/DetailStars"
-                app:layout_constraintStart_toEndOf="@+id/DetailStars"
-                app:layout_constraintTop_toTopOf="@+id/DetailStars"
+                android:layout_marginStart="@dimen/all_margin_8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/detail_stars"
+                app:layout_constraintStart_toEndOf="@+id/detail_stars"
+                app:layout_constraintTop_toTopOf="@+id/detail_stars"
                 tools:text="125 Reviews"/>
 
             <TextView
-                android:id="@+id/DetailStoryline"
+                android:id="@+id/detail_storyline"
                 style="@style/DetailStoryline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/guideline5"
-                app:layout_constraintTop_toBottomOf="@+id/DetailReview"/>
+                app:layout_constraintTop_toBottomOf="@+id/detail_review"/>
 
             <TextView
-                android:id="@+id/DetailOverview"
+                android:id="@+id/detail_overview"
                 style="@style/DetailTextOverview"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toStartOf="@+id/guideline2"
                 app:layout_constraintStart_toStartOf="@+id/guideline5"
-                app:layout_constraintTop_toBottomOf="@+id/DetailStoryline"
+                app:layout_constraintTop_toBottomOf="@+id/detail_storyline"
                 tools:text="After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe."/>
 
             <TextView
-                android:id="@+id/DetailCast"
+                android:id="@+id/detail_cast"
                 style="@style/DetailCast"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="@+id/guideline5"
-                app:layout_constraintTop_toBottomOf="@+id/DetailOverview"/>
+                app:layout_constraintTop_toBottomOf="@+id/detail_overview"/>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/DetailActors"
+                android:id="@+id/detail_actors"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/all_margin_8dp"
                 android:layout_marginBottom="@dimen/all_margin_8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/DetailCast"/>
+                app:layout_constraintTop_toBottomOf="@+id/detail_cast"/>
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline2"

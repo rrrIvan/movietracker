@@ -7,7 +7,7 @@
     style="@style/ItemActorRoot">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/ActorPhoto"
+        android:id="@+id/itemactor_photo"
         android:layout_width="@dimen/actor_photo_size"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
@@ -18,12 +18,12 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/ActorName"
+        android:id="@+id/itemactor_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         style="@style/ItemActorActorName"
-        app:layout_constraintEnd_toEndOf="@+id/ActorPhoto"
-        app:layout_constraintStart_toStartOf="@+id/ActorPhoto"
-        app:layout_constraintTop_toBottomOf="@+id/ActorPhoto"
+        app:layout_constraintEnd_toEndOf="@+id/itemactor_photo"
+        app:layout_constraintStart_toStartOf="@+id/itemactor_photo"
+        app:layout_constraintTop_toBottomOf="@+id/itemactor_photo"
         tools:text="@string/itemactor_actor_name" />
 </androidx.constraintlayout.widget.ConstraintLayout>

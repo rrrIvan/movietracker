@@ -39,8 +39,8 @@ class CastAdapter : RecyclerView.Adapter<CastAdapter.DataViewHolder>() {
 
     class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        private val photo: ImageView = itemView.findViewById(R.id.ActorPhoto)
-        private val name: TextView = itemView.findViewById(R.id.ActorName)
+        private val photo: ImageView = itemView.findViewById(R.id.itemactor_photo)
+        private val name: TextView = itemView.findViewById(R.id.itemactor_name)
 
         fun bind(actor: Actor) {
 

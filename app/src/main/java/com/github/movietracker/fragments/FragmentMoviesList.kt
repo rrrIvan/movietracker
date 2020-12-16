@@ -37,10 +37,10 @@ class FragmentMoviesList : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         (activity as? ActivityMain)?.apply {
             updateStatusBarColor(R.color.color_primary)
-            setSupportActionBar(view.findViewById(R.id.ListToolbar)).apply {
+            setSupportActionBar(view.findViewById(R.id.movielist_toolbar)).apply {
             }
         }
-        recycler = view.findViewById<RecyclerView>(R.id.rv_films)
+        recycler = view.findViewById<RecyclerView>(R.id.movielist_movies)
         recycler?.apply {
             layoutManager = GridLayoutManager(context, (orientation ?: 1) * 2)
             movieAdapter = MovieAdapter(listener)

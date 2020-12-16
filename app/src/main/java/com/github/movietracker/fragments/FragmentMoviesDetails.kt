@@ -47,7 +47,7 @@ class FragmentMoviesDetails : Fragment() {
     @SuppressLint("RestrictedApi")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val toolbar = view.findViewById<Toolbar>(R.id.DetailsToolbar)
+        val toolbar = view.findViewById<Toolbar>(R.id.details_toolbar)
         (activity as? ActivityMain)?.apply {
             updateStatusBarColor(R.color.transparent)
             setSupportActionBar(toolbar)
@@ -59,7 +59,7 @@ class FragmentMoviesDetails : Fragment() {
             }
         }
 
-        binding.DetailActors.apply {
+        binding.detailActors.apply {
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
             adapter = CastAdapter()
             addItemDecoration(ItemDecorationLinear(2.toPx, 16.toPx))
@@ -67,17 +67,17 @@ class FragmentMoviesDetails : Fragment() {
 
         movie.apply {
             binding.apply {
-                loadImage(view.context, backdrop, DetailPoster)
+                loadImage(view.context, backdrop, detailsPoster)
                 val like = if (like) R.drawable.like_16dp else R.drawable.no_like_16dp
                 val drawable: Drawable? = ContextCompat.getDrawable(view.context, like)
-                DetailTags.text = genres.joinToString(separator = ", ") { it.name }
-                DetailLike.setImageDrawable(drawable)
-                DetailReview.text = votes.toString().plus(" REVIEWS")
-                DetailStars.rating = rating / 2
-                DetailCollapsing.title = title
-                DetailTextAge.text = age.toString().plus("+")
-                DetailOverview.text = overview
-                castAdapter = DetailActors.adapter as CastAdapter
+                detailTags.text = genres.joinToString(separator = ", ") { it.name }
+                detailsLike.setImageDrawable(drawable)
+                detailReview.text = votes.toString().plus(" REVIEWS")
+                detailStars.rating = rating / 2
+                detailsCollapsing.title = title
+                detailsTextage.text = age.toString().plus("+")
+                detailOverview.text = overview
+                castAdapter = detailActors.adapter as CastAdapter
             }
         }
     }

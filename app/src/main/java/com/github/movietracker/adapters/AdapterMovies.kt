@@ -44,25 +44,21 @@ class MovieAdapter(
 
         fun bind(movie: Movie) {
             binding.apply {
-                loadImage(context, movie.poster, ItemMoviePoster)
-                ItemMovieTags.text = movie.genres.joinToString(separator = ", ") { it.name }
+                loadImage(context, movie.poster, itemmoviePoster)
+                itemmovieTags.text = movie.genres.joinToString(separator = ", ") { it.name }
                 val like = if (movie.like) R.drawable.like_16dp else R.drawable.no_like_16dp
                 val drawable: Drawable? = ContextCompat.getDrawable(context, like)
-                ItemMovieLike.setImageDrawable(drawable)
-                ItemMovieReviews.text = movie.votes.toString().plus(" REVIEWS")
-                ItemMovieStars.rating = movie.rating / 2
-                ItemMovieTitle.text = movie.title
-                ItemMovieAgeLimit.text = movie.age.toString().plus("+")
-                ItemMovieDuration.text = movie.runtime.toString().plus(" min")
+                itemmovieLike.setImageDrawable(drawable)
+                itemmovieReviews.text = movie.votes.toString().plus(" REVIEWS")
+                itemmovieStars.rating = movie.rating / 2
+                itemmovieTitle.text = movie.title
+                itemmovieAgelimit.text = movie.age.toString().plus("+")
+                itemmovieDuration.text = movie.runtime.toString().plus(" min")
 
             }
         }
     }
 }
-
-// interface OnRecyclerItemClicked {
-//     fun onClick(movie: Movie)
-// }
 
 private val RecyclerView.ViewHolder.context
     get() = this.itemView.context
