@@ -26,8 +26,7 @@
             app:layout_constraintDimensionRatio="@string/itemmovie_poster_ratio"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/movie"/>
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <ImageView
             android:layout_width="0dp"

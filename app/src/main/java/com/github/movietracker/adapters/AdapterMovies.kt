@@ -13,11 +13,11 @@ import com.github.movietracker.extensions.loadImage
 class MovieAdapter(
     private val listener: (Movie) -> Unit
 ) : RecyclerView.Adapter<MovieAdapter.DataViewHolder>() {
-    private lateinit var _binding: ItemMovieBinding
     private var movies = listOf<Movie>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
-        _binding = ItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return DataViewHolder(_binding)
+        return DataViewHolder(
+            ItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
@@ -40,7 +40,7 @@ class MovieAdapter(
 
         fun bind(movie: Movie) {
             binding.apply {
-                loadImage(context, movie.poster, itemmoviePoster)
+                itemmoviePoster.loadImage(context, movie.poster)
                 itemmovieTags.text = movie.genres.joinToString(separator = ", ") { it.name }
                 val like = if (movie.like) R.drawable.like_16dp else R.drawable.no_like_16dp
                 val drawable: Drawable? = ContextCompat.getDrawable(context, like)

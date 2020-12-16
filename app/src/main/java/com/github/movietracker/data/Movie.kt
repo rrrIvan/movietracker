@@ -17,5 +17,4 @@ data class Movie(
     val like: Boolean = false,
     val genres: List<Genre> = listOf(),
     val actors: List<Actor> = listOf(),
-
 ) : Parcelable
