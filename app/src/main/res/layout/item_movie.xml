@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ItemMovieCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/ItemMovieCard"
+    app:cardBackgroundColor="@color/color_accent"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/cardview_border"
+    app:strokeWidth="1dp"
+    app:theme="@style/ListCardView">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp">
+
+        <ImageView
+            android:id="@+id/itemmovie_poster"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="@string/itemmovie_poster_ratio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/gradient_mask"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="@+id/itemmovie_poster"
+            app:layout_constraintEnd_toEndOf="@+id/itemmovie_poster"
+            app:layout_constraintStart_toStartOf="@+id/itemmovie_poster"
+            app:layout_constraintTop_toTopOf="@+id/itemmovie_poster"/>
+
+        <View
+            android:id="@+id/itemmovie_viewage"
+            android:layout_width="@dimen/view_age_size"
+            android:layout_height="@dimen/view_age_size"
+            android:layout_marginTop="@dimen/all_margin_8dp"
+            android:background="@drawable/age_backview"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/itemmovie_agelimit"
+            style="@style/DetailTextAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/itemmovie_viewage"
+            app:layout_constraintEnd_toEndOf="@+id/itemmovie_viewage"
+            app:layout_constraintStart_toStartOf="@+id/itemmovie_viewage"
+            app:layout_constraintTop_toTopOf="@+id/itemmovie_viewage"
+            tools:text="13+"/>
+
+        <com.github.movietracker.custom_raiting_bar.RaitingBarSvg
+            android:id="@+id/itemmovie_stars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:progressBackgroundTint="@color/grey"
+            android:progressDrawable="@drawable/rating_bar_bg"
+            android:progressTint="@color/red"
+            android:rating="0"
+            android:secondaryProgressTint="@color/grey"
+            android:stepSize="1"
+            app:drawableHeight="8dp"
+            app:drawableWidth="8dp"
+            app:innerPadding="2dp"
+            app:layout_constraintBottom_toBottomOf="@+id/itemmovie_poster"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="@+id/guideline"/>
+
+        <TextView
+            android:id="@+id/itemmovie_reviews"
+            style="@style/ItemTextReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/itemmovie_stars"
+            app:layout_constraintStart_toEndOf="@+id/itemmovie_stars"
+            tools:text="@string/itemmovie_review_placeholder"/>
+
+        <TextView
+            android:id="@+id/itemmovie_tags"
+            style="@style/ItemMovieTags"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/all_margin_8dp"
+            app:layout_constraintBottom_toTopOf="@+id/itemmovie_stars"
+            app:layout_constraintEnd_toEndOf="@id/guideline3"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            tools:text="@string/itemmovie_listtags_placeholder"/>
+
+        <TextView
+            android:id="@+id/itemmovie_title"
+            style="@style/movielist_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/itemmovie_poster"
+            tools:text="Avengers: End Game"/>
+
+        <TextView
+            android:id="@+id/itemmovie_duration"
+            style="@style/ItemMovieDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/itemmovie_title"
+            tools:text="137 min"/>
+
+        <ImageView
+            android:id="@+id/itemmovie_like"
+            android:layout_width="@dimen/img_like_size"
+            android:layout_height="@dimen/img_like_size"
+            android:layout_marginTop="@dimen/img_like_margin_all"
+            android:contentDescription="@string/itemmovie_like_description"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/like_16dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="8dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="8dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

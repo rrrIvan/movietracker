@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="background_color">#FF191926</color>
-    <color name="my_grey">#6D6D80</color>
-    <color name="qqq">#13C53A</color>
-    <color name="my_red">#FF3466</color>
-    <color name="my_white">#FFECECEC</color>
+<resources>>
+    <color name="black">#000000</color>
+    <color name="grey">#6D6D80</color>
+    <color name="red">#FF3466</color>
+    <color name="shadow">#42000000</color>
+    <color name="soft_white">#FFECECEC</color>
+    <color name="transparent_white">#BFECECEC</color>
+    <color name="cardview_border">#636375</color>
+    <color name="actor_name">#D8D8D8</color>
+    <color name="color_primary">#FF191926</color>
+    <color name="color_accent">#222232</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>
