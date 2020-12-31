@@ -13,11 +13,30 @@ import com.github.movietracker.adapters.ItemDecorationGrid
 import com.github.movietracker.adapters.MovieAdapter
 import com.github.movietracker.data.Movie
 import com.github.movietracker.repositories.MoviesRepository
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class FragmentMoviesList : Fragment() {
     private var recycler: RecyclerView? = null
     private var orientation: Int? = null
     private lateinit var movieAdapter: MovieAdapter
+
+    private val exceptionHandler = CoroutineExceptionHandler { coroutineContext, exception ->
+        coroutineScope = createScope().apply {
+            launch {
+                Timber.e("CoroutineExceptionHandler got $exception in $coroutineContext")
+            }
+        }
+    }
+
+    private fun createScope(): CoroutineScope = CoroutineScope(Dispatchers.Main + Job() + exceptionHandler)
+    private var coroutineScope = createScope()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         orientation = resources.configuration.orientation
@@ -55,8 +74,9 @@ class FragmentMoviesList : Fragment() {
     }
 
     private fun updateData() {
-        movieAdapter.apply {
-            bindMovies(MoviesRepository.getMovies())
+        coroutineScope.launch {
+            val movies = MoviesRepository.getMovies()
+            movieAdapter.bindMovies(movies)
         }
     }
 

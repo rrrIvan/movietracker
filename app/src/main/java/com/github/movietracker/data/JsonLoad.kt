@@ -78,15 +78,6 @@ internal suspend fun loadMovies(context: Context): List<Movie> = withContext(Dis
     parseMovies(data, genresMap, actorsMap)
 }
 
-internal fun getRepository(context: Context): List<Movie> {
-    val dataMovies = readAssetFileToString(context, "data.json")
-    val dataActors = readAssetFileToString(context, "people.json")
-    val dataGenres = readAssetFileToString(context, "genres.json")
-    val actors = parseActors(dataActors)
-    val genres = parseGenres(dataGenres)
-    return parseMovies(data = dataMovies, genres = genres, actors = actors)
-}
-
 internal fun parseMovies(
     data: String,
     genres: List<Genre>,
