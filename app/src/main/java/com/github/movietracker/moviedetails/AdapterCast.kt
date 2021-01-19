@@ -1,4 +1,4 @@
-package com.github.movietracker.adapters
+package com.github.movietracker.moviedetails
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -1,4 +1,4 @@
-package com.github.movietracker.ui
+package com.github.movietracker.moviedetails
 
 import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
@@ -14,8 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.movietracker.R
 import com.example.movietracker.databinding.FragmentMoviesDetailsBinding
 import com.github.movietracker.activites.ActivityMain
-import com.github.movietracker.adapters.CastAdapter
-import com.github.movietracker.adapters.ItemDecorationLinear
 import com.github.movietracker.data.Movie
 import com.github.movietracker.extensions.Constants
 import com.github.movietracker.extensions.loadImage

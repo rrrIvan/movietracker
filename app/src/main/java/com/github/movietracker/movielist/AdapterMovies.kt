@@ -1,4 +1,4 @@
-package com.github.movietracker.adapters
+package com.github.movietracker.movielist
 
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
