@@ -39,7 +39,7 @@ class RaitingBarSvg @JvmOverloads constructor(
     private var halfOfInnerPadding: Int
 
     init {
-        attrs?.let { getSettingsFromAttr(it) }
+        attrs?.also { getSettingsFromAttr(it) }
 
         halfOfInnerPadding = (innerPadding / 2)
         val drawable = tileify(progressDrawable, false) as LayerDrawable
@@ -64,7 +64,7 @@ class RaitingBarSvg @JvmOverloads constructor(
 
             is DrawableWrapper -> {
                 val inner: Drawable? = drawable.wrappedDrawable
-                inner?.let { drawable.wrappedDrawable = tileify(it, clip) }
+                inner?.also { drawable.wrappedDrawable = tileify(it, clip) }
                 return drawable
             }
 

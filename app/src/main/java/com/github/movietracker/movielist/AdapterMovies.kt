@@ -13,7 +13,7 @@ import com.github.movietracker.extensions.loadImage
 
 class MovieAdapter(
     private val listener: (Movie) -> Unit
-) : RecyclerView.Adapter<MovieAdapter.DataViewHolder>(){
+) : RecyclerView.Adapter<MovieAdapter.DataViewHolder>() {
     private var movies = listOf<Movie>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
         return DataViewHolder(
@@ -55,7 +55,10 @@ class MovieAdapter(
         }
     }
 
-    class MovieDiffUtil(private val oldList: List<Movie>, private val newList: List<Movie>) : DiffUtil.Callback() {
+    class MovieDiffUtil(
+        private val oldList: List<Movie>,
+        private val newList: List<Movie>
+    ) : DiffUtil.Callback() {
         override fun getOldListSize(): Int = oldList.size
 
         override fun getNewListSize(): Int = newList.size

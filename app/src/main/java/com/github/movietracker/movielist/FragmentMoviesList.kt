@@ -5,32 +5,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movietracker.R
+import com.github.movietracker.AppMovie
 import com.github.movietracker.activites.ActivityMain
 import com.github.movietracker.data.Movie
-import com.github.movietracker.repositories.MoviesRepository
 import com.github.movietracker.moviedetails.FragmentMoviesDetails
 
-class FragmentMoviesList : Fragment() {
+class FragmentMoviesList : Fragment(R.layout.fragment_movies_list) {
     private var recycler: RecyclerView? = null
     private var orientation: Int? = null
     private lateinit var movieAdapter: MovieAdapter
+    private val viewModel: MovieViewModel by viewModels { ListViewModelFactory(AppMovie.instance) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         orientation = resources.configuration.orientation
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        requireContext().setTheme(R.style.AppTheme)
-        val view = inflater.inflate(R.layout.fragment_movies_list, container, false)
-        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,17 +40,13 @@ class FragmentMoviesList : Fragment() {
             adapter = movieAdapter
             addItemDecoration(ItemDecorationGrid((orientation ?: 1) * 2, 30, true))
         }
+        viewModel.movieList.observe(this.viewLifecycleOwner, ::updateData)
     }
 
-    override fun onStart() {
-        super.onStart()
-        updateData()
-    }
-
-    private fun updateData() {
+    private fun updateData(list: List<Movie>) {
         movieAdapter.apply {
-            bindMovies(MoviesRepository.getMovies())
-            val diffCallback = MovieAdapter.MovieDiffUtil(MoviesRepository.getMovies(), MoviesRepository.getMovies())
+            bindMovies(list)
+            val diffCallback = MovieAdapter.MovieDiffUtil(list, list)
             val diffResult: DiffUtil.DiffResult = DiffUtil.calculateDiff(diffCallback)
             diffResult.dispatchUpdatesTo(this)
         }

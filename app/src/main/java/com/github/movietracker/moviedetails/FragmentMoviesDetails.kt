@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movietracker.R
@@ -22,14 +23,11 @@ import com.github.movietracker.extensions.toPx
 class FragmentMoviesDetails : Fragment() {
     private var _binding: FragmentMoviesDetailsBinding? = null
     private val binding get() = _binding!!
-    private lateinit var movie: Movie
     private lateinit var castAdapter: CastAdapter
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            movie = it.getParcelable(Constants.MOVIE_KEY) ?: Movie()
-        }
+    private val viewModel: DetailViewModel by viewModels {
+        DetailViewModelFactory(
+            this.arguments?.getParcelable(Constants.MOVIE_KEY) ?: Movie()
+        )
     }
 
     override fun onCreateView(
@@ -63,11 +61,15 @@ class FragmentMoviesDetails : Fragment() {
             addItemDecoration(ItemDecorationLinear(2.toPx, 16.toPx))
         }
 
+        viewModel.movie.observe(this.viewLifecycleOwner, this::updateAdapter)
+    }
+
+    private fun updateAdapter(movie: Movie) {
         movie.apply {
             binding.apply {
-                detailsPoster.loadImage(view.context, backdrop)
+                detailsPoster.loadImage(requireContext(), backdrop)
                 val like = if (like) R.drawable.like_16dp else R.drawable.no_like_16dp
-                val drawable: Drawable? = ContextCompat.getDrawable(view.context, like)
+                val drawable: Drawable? = ContextCompat.getDrawable(requireContext(), like)
                 detailTags.text = genres.joinToString(separator = ", ") { it.name }
                 detailsLike.setImageDrawable(drawable)
                 detailReview.text = votes.toString().plus(" REVIEWS")
@@ -76,13 +78,9 @@ class FragmentMoviesDetails : Fragment() {
                 detailsTextage.text = age.toString().plus("+")
                 detailOverview.text = overview
                 castAdapter = detailActors.adapter as CastAdapter
+                updateData(movie)
             }
         }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        updateData()
     }
 
     override fun onDestroy() {
@@ -90,7 +88,7 @@ class FragmentMoviesDetails : Fragment() {
         _binding = null
     }
 
-    private fun updateData() {
+    private fun updateData(movie: Movie) {
         castAdapter.apply {
             bindCast(movie.actors)
         }
