@@ -1,10 +1,11 @@
-package com.github.movietracker.fragments
+package com.github.movietracker.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movietracker.R
@@ -57,6 +58,9 @@ class FragmentMoviesList : Fragment() {
     private fun updateData() {
         movieAdapter.apply {
             bindMovies(MoviesRepository.getMovies())
+            val diffCallback = MovieAdapter.MovieDiffUtil(MoviesRepository.getMovies(), MoviesRepository.getMovies())
+            val diffResult: DiffUtil.DiffResult = DiffUtil.calculateDiff(diffCallback)
+            diffResult.dispatchUpdatesTo(this)
         }
     }
 

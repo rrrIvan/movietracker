@@ -1,4 +1,4 @@
-package com.github.movietracker.fragments
+package com.github.movietracker.ui
 
 import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
