@@ -1,9 +1,28 @@
+package com.github.movietracker.model
+
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Images(
-    val backdrop_sizes: List<String>,
-    val base_url: String,
-    val logo_sizes: List<String>,
-    val poster_sizes: List<String>,
-    val profile_sizes: List<String>,
-    val secure_base_url: String,
-    val still_sizes: List<String>
+    @SerialName("poster_sizes")
+    val posterSizes: List<String?>? = null,
+
+    @SerialName("secure_base_url")
+    val secureBaseUrl: String? = null,
+
+    @SerialName("backdrop_sizes")
+    val backdropSizes: List<String?>? = null,
+
+    @SerialName("base_url")
+    val baseUrl: String? = null,
+
+    @SerialName("logo_sizes")
+    val logoSizes: List<String?>? = null,
+
+    @SerialName("still_sizes")
+    val stillSizes: List<String?>? = null,
+
+    @SerialName("profile_sizes")
+    val profileSizes: List<String?>? = null
 )

@@ -1,9 +1,7 @@
 package com.github.movietracker.movielist
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DiffUtil
@@ -12,14 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.movietracker.R
 import com.github.movietracker.AppMovie
 import com.github.movietracker.activites.ActivityMain
-import com.github.movietracker.data.Movie
-import com.github.movietracker.moviedetails.FragmentMoviesDetails
+import com.github.movietracker.model.Movie
+// import com.github.movietracker.moviedetails.FragmentMoviesDetails
 
 class FragmentMoviesList : Fragment(R.layout.fragment_movies_list) {
     private var recycler: RecyclerView? = null
     private var orientation: Int? = null
     private lateinit var movieAdapter: MovieAdapter
-    private val viewModel: MovieViewModel by viewModels { ListViewModelFactory(AppMovie.instance) }
+    private val viewModel: MovieViewModel  = MovieViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +41,7 @@ class FragmentMoviesList : Fragment(R.layout.fragment_movies_list) {
         viewModel.movieList.observe(this.viewLifecycleOwner, ::updateData)
     }
 
-    private fun updateData(list: List<Movie>) {
+    private fun updateData(list: List<Movie?>) {
         movieAdapter.apply {
             bindMovies(list)
             val diffCallback = MovieAdapter.MovieDiffUtil(list, list)
@@ -53,14 +51,14 @@ class FragmentMoviesList : Fragment(R.layout.fragment_movies_list) {
     }
 
     private fun doOnClick(movie: Movie) {
-        (activity as? ActivityMain)?.apply {
-            supportFragmentManager.beginTransaction()
-                .apply {
-                    replace(R.id.fragments_container, FragmentMoviesDetails.newInstance(movie))
-                    addToBackStack(null)
-                    commit()
-                }
-        }
+        // (activity as? ActivityMain)?.apply {
+        //     supportFragmentManager.beginTransaction()
+        //         .apply {
+        //             replace(R.id.fragments_container, FragmentMoviesDetails.newInstance(movie))
+        //             addToBackStack(null)
+        //             commit()
+        //         }
+        // }
     }
 
     private val listener: (Movie) -> Unit = { doOnClick(it) }

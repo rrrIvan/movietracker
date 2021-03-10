@@ -8,4 +8,6 @@
     <string name="details_cast_text">Cast</string>
     <string name="itemmovie_poster_ratio">166:248</string>
     <string name="itemactor_actor_name">Text Viewkjh jkhb kjhbk jhbk hbk jhbk jhbk jhbk jbh jk</string>
+    <string name="adult_age_limit">18+</string>
+    <string name="no_age_limit">0+</string>
 </resources>

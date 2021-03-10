@@ -1,20 +1,56 @@
-package com.github.movietracker.data
+package com.github.movietracker.model
 
+import android.content.Context
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import com.example.movietracker.R
+import com.github.movietracker.data.Actor
+import kotlinx.serialization.Serializable
 
-@Parcelize
+@Serializable
 data class Movie(
-    val id: Int = -1,
-    val title: String = "",
-    val overview: String = "",
-    val poster: String = "",
-    val backdrop: String = "",
-    val rating: Float = 0.0f,
-    val runtime: Int = 0,
-    val votes: Int = 0,
-    val age: Int = 0,
-    val like: Boolean = false,
-    val genres: List<Genre> = listOf(),
-    val actors: List<Actor> = listOf(),
-) : Parcelable
+    var popularity: Double,
+    var voteCount: Int,
+    var video: Boolean,
+    var posterPath: String,
+    var id: Int,
+    var adult: Boolean,
+    var backdropPath: String,
+    var originalLanguage: String,
+    var originalTitle: String,
+    var genreIds: List<Int>,
+    var title: String,
+    // var actorIds: List<Int>?,
+    var voteAverage: Double,
+    var overview: String,
+    var releaseDate: String,
+    var runtime:  String,
+
+
+    var isFavorite: Boolean = false,
+    var genres: MutableList<Genre> = mutableListOf(),
+    var actorList: List<Actor> = listOf()
+) {
+    fun getAgeLimit(context: Context): String {
+        return if (adult) {
+           context.getString(R.string.adult_age_limit)
+        } else {
+            context.getString(R.string.no_age_limit)
+        }
+    }
+
+    fun getRating() = voteAverage / 2
+
+    fun getGenreNames(): String {
+        genres.let { genres ->
+            return buildString {
+                if (genres.size > 1) {
+                    for (index in 0..genres.size - 2) {
+                        append(genres[index].name).append(", ")
+                    }
+                }
+                append(genres.last().name)
+            }
+        }
+        return ""
+    }
+}

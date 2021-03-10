@@ -1,19 +1,19 @@
-package com.samoilovich.courseapp.repo.converter
+package com.github.movietracker.convertor
 
-import com.samoilovich.courseapp.data.Genre
-import com.samoilovich.courseapp.repo.model.GenresResponse
+import com.github.movietracker.model.Genre
+import com.github.movietracker.model.GenreResponse
 
 object GenreConverter {
 
-    fun genresResponseToGenreList(genresResponse: GenresResponse): HashMap<Int, Genre> {
+    fun genresResponseToGenreList(genreResponse: GenreResponse): HashMap<Int, Genre> {
         val genres = hashMapOf<Int, Genre>()
-        genresResponse.genres?.let { genreItemsResponse ->
+        genreResponse.genres?.let { genreItemsResponse ->
             for (item in genreItemsResponse) {
-                item?.let {
-                    val id = item.id ?: -1
+                item.let {
+                    val id = item.id
                     val genre = Genre(
                         id = id,
-                        name = item.name ?: ""
+                        name = item.name
                     )
                     genres[id] = genre
                 }

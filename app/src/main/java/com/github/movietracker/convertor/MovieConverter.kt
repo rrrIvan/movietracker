@@ -1,15 +1,15 @@
-package com.samoilovich.courseapp.repo.converter
+package com.github.movietracker.convertor
 
-import com.samoilovich.courseapp.data.Movie
-import com.samoilovich.courseapp.repo.model.MoviesPopularResponse
+import com.github.movietracker.model.Movie
+import com.github.movietracker.model.PopularMovieResponse
 
 object MovieConverter {
 
-    fun moviesPopularResponseToMovieList(moviesPopularResponse: MoviesPopularResponse): List<Movie> {
+    fun moviesPopularResponseToMovieList(moviesPopularResponse: PopularMovieResponse): List<Movie> {
         val movies = mutableListOf<Movie>()
         moviesPopularResponse.movies?.let { moviesResponse ->
             for (movieResponse in moviesResponse) {
-                movieResponse?.let {
+                movieResponse.let {
                     val movie = Movie(
                         popularity = movieResponse.popularity,
                         voteCount = movieResponse.voteCount,
@@ -20,10 +20,10 @@ object MovieConverter {
                         backdropPath = movieResponse.backdropPath,
                         originalLanguage = movieResponse.originalLanguage,
                         originalTitle = movieResponse.originalTitle,
-                        runtime = movieResponse.runtime,
                         genreIds = movieResponse.genreIds,
                         title = movieResponse.title,
-                        actorIds = movieResponse.actorIds,
+                        // actorIds = movieResponse.actorIds,
+                        runtime = "128",
                         voteAverage = movieResponse.voteAverage,
                         overview = movieResponse.overview,
                         releaseDate = movieResponse.releaseDate

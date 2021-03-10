@@ -2,7 +2,7 @@ package com.github.movietracker.moviedetails
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.github.movietracker.data.Movie
+import com.github.movietracker.model.Movie
 
 class DetailViewModelFactory(private val movie: Movie) : ViewModelProvider.Factory {
 

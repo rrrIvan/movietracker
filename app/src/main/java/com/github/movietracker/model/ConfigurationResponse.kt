@@ -1,4 +1,13 @@
+package com.github.movietracker.model
+
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class ConfigurationResponse(
-    val change_keys: List<String>,
-    val images: Images
+    @SerialName("images")
+    val images: Images? = null,
+
+    @SerialName("change_keys")
+    val changeKeys: List<String?>? = null
 )

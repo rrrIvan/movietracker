@@ -1,4 +1,4 @@
-package com.github.movietracker.network
+package com.github.movietracker.model
 
 import com.github.movietracker.model.PopularMovieResult
 import kotlinx.serialization.SerialName
@@ -9,7 +9,7 @@ data class PopularMovieResponse(
     @SerialName("page")
     val page: Int,
     @SerialName("results")
-    val results: List<PopularMovieResult>,
+    val movies: List<PopularMovieResult>,
     val total_pages: Int,
     val total_results: Int
 )
